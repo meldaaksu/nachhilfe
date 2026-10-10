@@ -167,6 +167,11 @@ footer { background: #102538; color: white; padding: 48px 0; }
 footer .logo { --logo-ink: white; --logo-paper: #102538; --logo-gold: var(--yellow); font-size: 46px; }
 footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; }
 .footer-right { text-align: right; }
+.footer-parent { margin-top: 34px; padding-top: 22px; border-top: 1px solid #ffffff1f; }
+.footer-parent a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; color: #b9c8d5; font-size: 12px; transition: color .25s; }
+.footer-parent img { width: auto; height: 22px; opacity: .85; transition: opacity .25s, transform .3s; }
+.footer-parent a:hover { color: white; }
+.footer-parent a:hover img { opacity: 1; transform: scale(1.06); }
 
 /* Contact details: a compact band, not a full-size section. */
 .contact-info { background: white; padding: 64px 0; }
@@ -193,6 +198,7 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 .legal p { color: var(--ink-soft); font-size: 15px; line-height: 1.85; margin: 0 0 14px; }
 .legal a { text-decoration: underline; text-underline-offset: 3px; }
 .legal-draft { padding: 14px 18px; border-left: 3px solid var(--yellow); background: #f3dfa64d; font-weight: 600; margin-bottom: 40px !important; }
+.legal-lead { font-size: 17px !important; color: var(--ink) !important; font-weight: 600; }
 .legal-date { margin-top: 40px !important; font-size: 13px !important; }
 
 /* Consultation */
