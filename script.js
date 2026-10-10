@@ -1,3 +1,12 @@
+// On a reload, always start at the top, even if the address still holds a #section from an earlier click.
+if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+  history.scrollRestoration = 'manual';
+  history.replaceState(null, '', location.pathname + location.search);
+  const toTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
+  toTop();
+  window.addEventListener('load', toTop);
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 const mobile = window.matchMedia('(max-width: 1250px)');
