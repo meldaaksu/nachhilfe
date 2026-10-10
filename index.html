@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Moderne Nachhilfe für die Klassen 3 bis 13.">
-  <title>Nachhilfe – Gemeinsam mehr erreichen</title>
+  <meta name="theme-color" content="#142c43">
+  <meta name="description" content="Nachhilfe für die Klassen 3 bis 13. Ein modernes Website-Demoprojekt.">
+  <title>nachhilfe. — Lernen mit Perspektive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #102b49;
-      --navy2: #173c60;
-      --yellow: #f6c44f;
-      --cream: #fffaf0;
-      --light: #f2f6fa;
-      --text: #24384d;
+      --ink: #142c43;
+      --ink-soft: #43566a;
+      --paper: #f8f7f3;
+      --white: #ffffff;
+      --yellow: #eec34f;
+      --line: #dedfdc;
     }
 
     * { box-sizing: border-box; }
@@ -22,445 +27,605 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: white;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
 
     .container {
-      width: min(1160px, 90%);
+      width: min(1240px, calc(100% - 72px));
       margin: auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+      letter-spacing: -.055em;
     }
 
     /* NAVIGATION */
 
-    header {
-      background: white;
-      border-bottom: 1px solid #edf0f4;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 88px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      min-height: 90px;
+      gap: 24px;
     }
 
-    .brand {
-      color: var(--navy);
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: -1px;
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -.075em;
     }
 
-    .brand span { color: #e5a81e; }
+    .logo span { color: #d6a525; }
 
     .nav-links {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 26px;
+      gap: 34px;
     }
 
     .nav-links a {
-      color: var(--navy);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
     }
 
-    .nav-links a:hover { color: #c48d18; }
+    .nav-links a:hover { color: #a87a0d; }
 
-    .nav-cta {
-      background: var(--yellow);
-      padding: 12px 20px;
-      border-radius: 30px;
+    .nav-links .nav-button {
+      background: var(--ink);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 3px;
+    }
+
+    .nav-links .nav-button:hover {
+      background: #294b68;
+      color: white;
     }
 
     /* HERO */
 
     .hero {
-      background:
-        radial-gradient(circle at 85% 20%, #fff0c8 0, transparent 35%),
-        linear-gradient(135deg, #fffaf0, #f3f8fd);
-      padding: 85px 0 105px;
-      overflow: hidden;
+      padding: 100px 0 110px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 65px;
       align-items: center;
+      gap: 90px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      color: #a47a1e;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .hero-copy .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
     }
 
-    h1, h2, h3 {
-      color: var(--navy);
-      line-height: 1.15;
+    .hero-copy .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--yellow);
     }
 
     h1 {
-      font-size: clamp(45px, 5.5vw, 75px);
-      letter-spacing: -3px;
-      margin: 0 0 25px;
-    }
-
-    h1 span {
-      color: #d9a52d;
-    }
-
-    .hero p {
-      max-width: 500px;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #526579;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      border-radius: 40px;
-      padding: 15px 26px;
+      font-size: clamp(58px, 6vw, 91px);
+      line-height: 1.06;
       font-weight: 800;
-      font-size: 14px;
+      margin: 0 0 30px;
     }
 
-    .btn-dark {
+    h1 .accent {
+      color: #c99a24;
+    }
+
+    .hero-copy > p {
+      max-width: 470px;
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .primary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 35px;
+      background: var(--ink);
       color: white;
-      background: var(--navy);
+      padding: 19px 25px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background .2s;
     }
 
-    .btn-yellow {
-      color: var(--navy);
-      background: var(--yellow);
-    }
+    .primary-link:hover { background: #2b4e6c; }
 
-    /* HERO IMAGE */
+    .primary-link span { font-size: 20px; }
 
-    .hero-image {
+    .hero-visual {
       position: relative;
-      padding: 18px;
     }
 
-    .hero-image::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 45% 55% 45% 55%;
-      background: var(--yellow);
-      transform: rotate(-9deg);
-    }
-
-    .hero-image img {
-      position: relative;
+    .hero-visual img {
       width: 100%;
-      height: 480px;
+      height: 560px;
       object-fit: cover;
-      border-radius: 38% 38% 24px 24px;
-      display: block;
+      object-position: center;
+      filter: saturate(.75);
     }
 
-    .floating-note {
+    .photo-label {
       position: absolute;
-      bottom: 28px;
-      left: -18px;
-      padding: 20px 24px;
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 15px 40px #102b4920;
-      color: var(--navy);
-      font-weight: 800;
-      font-size: 15px;
+      left: -28px;
+      bottom: -24px;
+      width: 220px;
+      background: var(--yellow);
+      padding: 26px;
     }
 
-    /* SHARED SECTIONS */
-
-    section.content {
-      padding: 95px 0;
+    .photo-label strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 43px;
+      line-height: 1;
+      letter-spacing: -.06em;
     }
 
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
+    .photo-label small {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 700;
     }
 
-    .section-heading h2 {
-      font-size: clamp(32px, 4vw, 47px);
-      margin: 0 0 18px;
+    /* INTRO STRIP */
+
+    .intro-strip {
+      background: var(--ink);
+      color: white;
     }
 
-    .section-heading p {
-      color: #617184;
-      line-height: 1.7;
+    .strip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .strip-item {
+      padding: 34px 35px;
+      border-right: 1px solid #ffffff30;
+    }
+
+    .strip-item:first-child { padding-left: 0; }
+    .strip-item:last-child { border: 0; }
+
+    .strip-item strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .strip-item span {
+      color: #b9c8d5;
+      font-size: 12px;
+    }
+
+    /* SECTION STRUCTURE */
+
+    .section {
+      padding: 115px 0;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .section-top h2 {
+      max-width: 740px;
+      margin: 14px 0 0;
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.14;
+    }
+
+    .section-top > p {
+      max-width: 290px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-size: 14px;
     }
 
     /* SUBJECTS */
 
-    .subject-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+    .subjects {
+      background: white;
     }
 
-    .subject {
-      min-height: 185px;
-      padding: 28px 15px;
-      border-radius: 22px;
-      background: var(--navy);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .subject-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .subject-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 40px;
       align-items: center;
-      gap: 18px;
-      text-align: center;
-      box-shadow: 0 10px 24px #102b4914;
-      transition: transform .2s;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .2s, background .2s;
     }
 
-    .subject:hover { transform: translateY(-6px); }
-
-    .subject:nth-child(2),
-    .subject:nth-child(4) {
-      background: var(--navy2);
+    .subject-row:hover {
+      padding-left: 16px;
+      padding-right: 16px;
+      background: #f8f7f3;
     }
 
-    .subject .icon { font-size: 40px; }
-
-    .subject strong { font-size: 17px; }
-
-    /* BENEFITS */
-
-    .benefits {
-      background: var(--navy);
-      color: white;
+    .subject-row .number {
+      color: #a3a8ab;
+      font-size: 12px;
     }
 
-    .benefits .section-heading h2 {
-      color: white;
+    .subject-row h3 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 39px);
+      font-weight: 600;
     }
 
-    .benefits .section-heading p {
-      color: #d4e1ed;
+    .subject-row .arrow {
+      font-size: 23px;
+      text-align: right;
+      color: #b68c25;
     }
 
-    .benefit-grid {
+    /* APPROACH */
+
+    .approach {
+      background: var(--paper);
+    }
+
+    .approach-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 90px;
+      align-items: center;
     }
 
-    .benefit {
-      padding: 32px;
-      border: 1px solid #ffffff25;
-      border-radius: 22px;
-      background: #ffffff0b;
+    .approach-photo img {
+      width: 100%;
+      height: 610px;
+      object-fit: cover;
+      filter: saturate(.75);
     }
 
-    .benefit .symbol {
-      font-size: 36px;
-      margin-bottom: 20px;
+    .approach-copy h2 {
+      font-size: clamp(39px, 4vw, 59px);
+      margin: 18px 0 24px;
     }
 
-    .benefit h3 {
-      color: white;
-      font-size: 21px;
+    .approach-copy > p {
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 38px;
     }
 
-    .benefit p {
-      color: #d4e1ed;
-      line-height: 1.7;
+    .feature {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 18px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
     }
 
-    /* PRICES */
+    .feature .feature-number {
+      color: #b88a22;
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-    .prices {
-      background: var(--light);
+    .feature h3 {
+      font-size: 18px;
+      margin: 0 0 8px;
+      letter-spacing: -.03em;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      background: #edf0ef;
     }
 
     .price-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 18px;
     }
 
     .price-card {
       background: white;
-      border-radius: 26px;
-      padding: 35px 28px;
-      box-shadow: 0 12px 35px #102b4910;
-      border-top: 6px solid var(--yellow);
+      padding: 38px 35px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .price-card.featured {
-      background: var(--navy);
+    .price-card.highlight {
+      background: var(--ink);
       color: white;
-      transform: translateY(-10px);
     }
 
-    .price-card.featured h3,
-    .price-card.featured .amount {
-      color: white;
+    .price-card .category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-weight: 700;
+      color: #a17821;
+    }
+
+    .price-card.highlight .category {
+      color: var(--yellow);
     }
 
     .price-card h3 {
-      font-size: 23px;
-      margin-bottom: 20px;
+      font-size: 25px;
+      margin: 25px 0 14px;
+      letter-spacing: -.04em;
     }
 
     .price-card p {
-      line-height: 1.8;
-      opacity: .85;
-    }
-
-    .amount {
-      display: block;
-      margin: 25px 0;
-      font-size: 43px;
-      font-weight: 900;
-      color: var(--navy);
-    }
-
-    .amount small {
+      color: #687887;
       font-size: 14px;
-      font-weight: 500;
-    }
-
-    /* CTA */
-
-    .cta {
-      background: var(--yellow);
-      padding: 85px 0;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: clamp(32px, 4vw, 48px);
-      margin: 0 0 18px;
-    }
-
-    .cta p {
-      max-width: 650px;
-      margin: 0 auto 28px;
       line-height: 1.8;
+    }
+
+    .price-card.highlight p { color: #c3d0dc; }
+
+    .price-bottom {
+      margin-top: auto;
+      padding-top: 32px;
+      border-top: 1px solid #e2e4e4;
+    }
+
+    .price-card.highlight .price-bottom {
+      border-color: #ffffff35;
+    }
+
+    .price-bottom strong {
+      font-family: "Manrope", sans-serif;
+      font-size: 48px;
+      letter-spacing: -.06em;
+    }
+
+    .price-bottom span {
+      font-size: 12px;
+      color: #7e8b96;
+    }
+
+    .price-card.highlight .price-bottom span {
+      color: #c3d0dc;
+    }
+
+    .demo-note {
+      margin-top: 24px;
+      color: #6e7b84;
+      font-size: 12px;
+    }
+
+    /* FINAL CTA */
+
+    .closing {
+      background: var(--yellow);
+      padding: 110px 0;
+    }
+
+    .closing-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    .closing h2 {
+      max-width: 800px;
+      font-size: clamp(46px, 5.5vw, 78px);
+      line-height: 1.1;
+      margin: 15px 0 0;
+    }
+
+    .closing a {
+      display: inline-block;
+      flex-shrink: 0;
+      padding: 17px 25px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     /* FOOTER */
 
     footer {
-      background: #0b2037;
-      color: #d5e0e9;
-      padding: 45px 0;
-      text-align: center;
+      background: #102538;
+      color: white;
+      padding: 55px 0;
     }
 
-    footer strong {
-      display: block;
-      color: white;
-      font-size: 24px;
-      margin-bottom: 10px;
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
     }
+
+    footer .logo { color: white; }
 
     footer p {
-      font-size: 13px;
-      line-height: 1.7;
+      margin: 12px 0 0;
+      color: #a9bac9;
+      font-size: 12px;
+      line-height: 1.8;
     }
 
-    /* RESPONSIVE */
+    .footer-right {
+      text-align: right;
+    }
 
-    @media (max-width: 950px) {
-      .hero-grid {
+    /* TABLET */
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .approach-grid {
         grid-template-columns: 1fr;
+        gap: 55px;
       }
 
-      .hero-image {
-        max-width: 600px;
-        margin: auto;
+      .hero-visual {
+        max-width: 680px;
       }
 
-      .subject-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .approach-photo img {
+        height: 440px;
       }
 
-      .benefit-grid,
+      .section-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .price-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .closing-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .container {
+        width: calc(100% - 36px);
       }
 
       .nav {
+        padding: 22px 0;
         flex-direction: column;
-        padding: 18px 0;
+        align-items: flex-start;
       }
 
       .nav-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .hero {
-        padding: 60px 0;
-      }
-
-      h1 {
-        font-size: 46px;
-        letter-spacing: -2px;
-      }
-
-      .hero-image img {
-        height: 340px;
-      }
-
-      .floating-note {
-        left: 0;
-        bottom: 5px;
-      }
-
-      section.content {
-        padding: 65px 0;
-      }
-
-      .subject-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .benefit-grid,
-      .price-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .price-card.featured {
-        transform: none;
-      }
-
-      .nav-links {
-        gap: 12px;
+        flex-wrap: wrap;
+        gap: 16px;
       }
 
       .nav-links a {
         font-size: 12px;
+      }
+
+      .nav-links .nav-button {
+        padding: 10px 13px;
+      }
+
+      .hero {
+        padding: 65px 0 85px;
+      }
+
+      h1 {
+        font-size: clamp(48px, 12vw, 70px);
+      }
+
+      .hero-visual img {
+        height: 390px;
+      }
+
+      .photo-label {
+        left: 0;
+        bottom: -20px;
+      }
+
+      .strip-grid,
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-item,
+      .strip-item:first-child {
+        padding: 25px 0;
+        border-right: 0;
+        border-bottom: 1px solid #ffffff30;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-top {
+        margin-bottom: 40px;
+      }
+
+      .subject-row {
+        grid-template-columns: 45px 1fr 25px;
+      }
+
+      .approach-photo img {
+        height: 350px;
+      }
+
+      .closing {
+        padding: 75px 0;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -468,227 +633,303 @@
 
 <body>
 
-  <header>
+  <!-- HEADER -->
+
+  <header class="header">
     <div class="container nav">
-      <a href="#start" class="brand">nach<span>hilfe.</span></a>
+
+      <a class="logo" href="#start">nachhilfe<span>.</span></a>
 
       <nav class="nav-links" aria-label="Hauptnavigation">
-        <a href="#start">Start</a>
         <a href="#faecher">Fächer</a>
-        <a href="#vorteile">Über uns</a>
-        <a href="#preise">Angebote</a>
-        <a href="#kontakt" class="nav-cta">Mehr erfahren ↗</a>
+        <a href="#konzept">Unser Konzept</a>
+        <a href="#angebote">Angebote</a>
+        <a class="nav-button" href="#mehr">Mehr entdecken ↗</a>
       </nav>
+
     </div>
   </header>
 
   <main>
 
-    <!-- START -->
+    <!-- HERO -->
 
     <section class="hero" id="start">
       <div class="container hero-grid">
 
-        <div>
-          <span class="eyebrow">Lernen mit Freude · Klassen 3–13</span>
+        <div class="hero-copy">
+          <div class="eyebrow">Nachhilfe · Klassen 3 bis 13</div>
 
           <h1>
-            Gemeinsam lernen.<br>
-            <span>Mehr erreichen.</span>
+            Lernen.<br>
+            Verstehen.<br>
+            <span class="accent">Wachsen.</span>
           </h1>
 
           <p>
-            Jeder Lernweg ist einzigartig.
-            Mit individueller Unterstützung, verständlichen
-            Erklärungen und einer positiven Lernatmosphäre
-            begleiten wir Schülerinnen und Schüler
-            auf ihrem Weg zum Erfolg.
+            Manchmal braucht es nur die richtige Erklärung,
+            ein wenig Geduld und jemanden, der an dich glaubt.
+            Wir zeigen, wie Lernen wieder Freude machen kann.
           </p>
 
-          <div class="buttons">
-            <a href="#preise" class="btn btn-dark">Unsere Angebote →</a>
-            <a href="#faecher" class="btn btn-yellow">Fächer entdecken</a>
-          </div>
+          <a class="primary-link" href="#angebote">
+            Lernangebote entdecken <span>↗</span>
+          </a>
         </div>
 
-        <div class="hero-image">
+        <div class="hero-visual">
           <img
-            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=85"
-            alt="Lernmaterialien auf einem Schreibtisch">
-          <div class="floating-note">
-            ✨ Schritt für Schritt zum Erfolg
+            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1400&q=85"
+            alt="Lernmaterialien und Notizen auf einem Schreibtisch">
+
+          <div class="photo-label">
+            <strong>3–13</strong>
+            <small>Klassenstufen.<br>Ein Ziel: weiterkommen.</small>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- FÄCHER -->
+    <!-- INFO STRIP -->
 
-    <section class="content" id="faecher">
+    <section class="intro-strip" aria-label="Unser Angebot">
+      <div class="container strip-grid">
+
+        <div class="strip-item">
+          <strong>05</strong>
+          <span>Schulfächer im Überblick</span>
+        </div>
+
+        <div class="strip-item">
+          <strong>3–13</strong>
+          <span>Klassenstufen</span>
+        </div>
+
+        <div class="strip-item">
+          <strong>01</strong>
+          <span>Gemeinsames Ziel: Lernerfolg</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+
+    <section class="section subjects" id="faecher">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="eyebrow">Unsere Fächer</span>
-          <h2>Für jedes Fach die passende Unterstützung.</h2>
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">01 / Unsere Fächer</span>
+            <h2>Wissen beginnt<br>mit Verstehen.</h2>
+          </div>
+
           <p>
-            Ob Hausaufgaben, Klassenarbeiten oder Prüfungsvorbereitung:
-            Gemeinsam arbeiten wir an deinen Lernzielen.
+            Von den Grundlagen bis zur Prüfungsvorbereitung:
+            Wir machen komplexe Themen verständlich.
           </p>
         </div>
 
-        <div class="subject-grid">
-          <div class="subject">
-            <span class="icon">📐</span>
-            <strong>Mathematik</strong>
+        <div class="subject-list">
+
+          <div class="subject-row">
+            <span class="number">01</span>
+            <h3>Mathematik</h3>
+            <span class="arrow">↗</span>
           </div>
 
-          <div class="subject">
-            <span class="icon">📖</span>
-            <strong>Deutsch</strong>
+          <div class="subject-row">
+            <span class="number">02</span>
+            <h3>Deutsch</h3>
+            <span class="arrow">↗</span>
           </div>
 
-          <div class="subject">
-            <span class="icon">🌍</span>
-            <strong>Englisch</strong>
+          <div class="subject-row">
+            <span class="number">03</span>
+            <h3>Englisch</h3>
+            <span class="arrow">↗</span>
           </div>
 
-          <div class="subject">
-            <span class="icon">🇫🇷</span>
-            <strong>Französisch</strong>
+          <div class="subject-row">
+            <span class="number">04</span>
+            <h3>Französisch</h3>
+            <span class="arrow">↗</span>
           </div>
 
-          <div class="subject">
-            <span class="icon">🧪</span>
-            <strong>Chemie</strong>
+          <div class="subject-row">
+            <span class="number">05</span>
+            <h3>Chemie</h3>
+            <span class="arrow">↗</span>
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- VORTEILE -->
+    <!-- CONCEPT -->
 
-    <section class="content benefits" id="vorteile">
-      <div class="container">
+    <section class="section approach" id="konzept">
+      <div class="container approach-grid">
 
-        <div class="section-heading">
-          <span class="eyebrow">Warum Nachhilfe?</span>
-          <h2>Weil Lernen mehr sein kann als Auswendiglernen.</h2>
+        <div class="approach-photo">
+          <img
+            src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=85"
+            alt="Lernumgebung in einem Unterrichtsraum"
+            loading="lazy">
+        </div>
+
+        <div class="approach-copy">
+          <span class="eyebrow">02 / Unser Lernkonzept</span>
+
+          <h2>
+            Nicht einfach mehr lernen.
+            Sondern besser.
+          </h2>
+
           <p>
-            Wir schaffen Raum für Fragen, Verständnis
-            und neue Motivation.
+            Guter Unterricht beginnt mit Zuhören.
+            Wir setzen auf verständliche Erklärungen,
+            klare Lernziele und eine Atmosphäre,
+            in der Fragen willkommen sind.
           </p>
-        </div>
 
-        <div class="benefit-grid">
+          <div class="feature">
+            <span class="feature-number">01</span>
+            <div>
+              <h3>Individuelles Lerntempo</h3>
+              <p>Jeder Mensch lernt anders. Deshalb gibt es keine Lösung, die für alle gleich ist.</p>
+            </div>
+          </div>
 
-          <article class="benefit">
-            <div class="symbol">🎯</div>
-            <h3>Individuelle Förderung</h3>
-            <p>
-              Wir orientieren uns am Lerntempo
-              und den Bedürfnissen jedes Kindes.
-            </p>
-          </article>
+          <div class="feature">
+            <span class="feature-number">02</span>
+            <div>
+              <h3>Verstehen statt Auswendiglernen</h3>
+              <p>Zusammenhänge erkennen und Wissen langfristig festigen.</p>
+            </div>
+          </div>
 
-          <article class="benefit">
-            <div class="symbol">💡</div>
-            <h3>Einfach erklärt</h3>
-            <p>
-              Schwierige Themen werden Schritt
-              für Schritt verständlich.
-            </p>
-          </article>
-
-          <article class="benefit">
-            <div class="symbol">🌱</div>
-            <h3>Mehr Selbstvertrauen</h3>
-            <p>
-              Kleine Lernerfolge stärken die Motivation
-              und das Vertrauen in die eigenen Fähigkeiten.
-            </p>
-          </article>
+          <div class="feature">
+            <span class="feature-number">03</span>
+            <div>
+              <h3>Selbstvertrauen entwickeln</h3>
+              <p>Mit jedem kleinen Erfolg wächst die Freude am Lernen.</p>
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
 
-    <!-- PREISE -->
+    <!-- PRICES -->
 
-    <section class="content prices" id="preise">
+    <section class="section pricing" id="angebote">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="eyebrow">Unsere Lernangebote</span>
-          <h2>Das passende Angebot für deinen Lernweg.</h2>
-          <p>Flexible Lernmodelle für unterschiedliche Bedürfnisse.</p>
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">03 / Lernangebote</span>
+            <h2>Für jeden Lernweg<br>das passende Format.</h2>
+          </div>
+
+          <p>
+            Unterschiedliche Lernformate,
+            ein gemeinsames Ziel:
+            mehr Sicherheit im Schulalltag.
+          </p>
         </div>
 
         <div class="price-grid">
 
           <article class="price-card">
+            <span class="category">Gemeinsam lernen</span>
             <h3>Gruppenunterricht</h3>
-            <p><strong>3–5 Lernende</strong></p>
-            <p>1 × pro Woche<br>90 Minuten</p>
-            <span class="amount">60 € <small>/ Monat</small></span>
-            <p>Gemeinsam lernen und sich gegenseitig motivieren.</p>
+            <p>
+              3–5 Lernende<br>
+              1 × pro Woche<br>
+              90 Minuten
+            </p>
+
+            <div class="price-bottom">
+              <strong>60 €</strong>
+              <span> / Monat</span>
+            </div>
           </article>
 
-          <article class="price-card featured">
-            <h3>Kleine Lerngruppe</h3>
-            <p><strong>2 Lernende</strong></p>
-            <p>1 × pro Woche<br>75 Minuten</p>
-            <span class="amount">75 € <small>/ Monat</small></span>
-            <p>Mehr persönliche Betreuung in einer kleinen Gruppe.</p>
+          <article class="price-card highlight">
+            <span class="category">Kleine Gruppe</span>
+            <h3>Zweierunterricht</h3>
+            <p>
+              2 Lernende<br>
+              1 × pro Woche<br>
+              75 Minuten
+            </p>
+
+            <div class="price-bottom">
+              <strong>75 €</strong>
+              <span> / Monat</span>
+            </div>
           </article>
 
           <article class="price-card">
+            <span class="category">Ganz individuell</span>
             <h3>Einzelunterricht</h3>
-            <p><strong>Individuelle Betreuung</strong></p>
-            <p>1 × pro Woche<br>60 Minuten</p>
-            <span class="amount">130 € <small>/ Monat</small></span>
-            <p>Volle Aufmerksamkeit für persönliche Lernziele.</p>
+            <p>
+              1 Lernende/r<br>
+              1 × pro Woche<br>
+              60 Minuten
+            </p>
+
+            <div class="price-bottom">
+              <strong>130 €</strong>
+              <span> / Monat</span>
+            </div>
           </article>
 
         </div>
 
-        <p style="text-align:center;margin-top:35px;color:#68788a;font-size:13px">
-          Beispielpreise für dieses Website-Demoprojekt.
+        <p class="demo-note">
+          Hinweis: Alle Preise dienen ausschließlich der Veranschaulichung in diesem Demoprojekt.
         </p>
 
       </div>
     </section>
 
-    <!-- KONTAKT / CTA -->
+    <!-- CLOSING -->
 
-    <section class="cta" id="kontakt">
-      <div class="container">
-        <span class="eyebrow" style="color:#775718">
-          Gemeinsam zum Lernerfolg
-        </span>
+    <section class="closing" id="mehr">
+      <div class="container closing-grid">
 
-        <h2>Bereit für den nächsten Schritt?</h2>
+        <div>
+          <span class="eyebrow">Ein guter Anfang</span>
+          <h2>Große Ziele beginnen mit kleinen Schritten.</h2>
+        </div>
 
-        <p>
-          Gute Nachhilfe beginnt mit Verständnis,
-          Vertrauen und der richtigen Unterstützung.
-          Entdecke, wie Lernen wieder Freude machen kann.
-        </p>
+        <a href="#start">Zurück nach oben ↑</a>
 
-        <a href="#start" class="btn btn-dark">
-          Zurück nach oben ↑
-        </a>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <div class="container">
-      <strong>nachhilfe.</strong>
-      <p>Gemeinsam lernen. Mehr erreichen.</p>
-      <p>Demo-Website · Beispielprojekt · Keine echte Buchungsplattform</p>
+    <div class="container footer-grid">
+
+      <div>
+        <a href="#start" class="logo">nachhilfe<span>.</span></a>
+        <p>Lernen. Verstehen. Wachsen.</p>
+      </div>
+
+      <div class="footer-right">
+        <p>Konzeptwebsite / Portfolio-Projekt</p>
+        <p>Dies ist eine Demo-Website ohne reale Buchungsfunktion.</p>
+      </div>
+
     </div>
   </footer>
 
