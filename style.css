@@ -169,7 +169,7 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 .footer-right { text-align: right; }
 .footer-parent { margin-top: 34px; padding-top: 22px; border-top: 1px solid #ffffff1f; }
 .footer-parent a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; color: #b9c8d5; font-size: 12px; transition: color .25s; }
-.footer-parent img { width: auto; height: 22px; opacity: .85; transition: opacity .25s, transform .3s; }
+.footer-parent img { width: auto; height: 28px; opacity: .85; transition: opacity .25s, transform .3s; }
 .footer-parent a:hover { color: white; }
 .footer-parent a:hover img { opacity: 1; transform: scale(1.06); }
 
