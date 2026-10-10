@@ -1,5 +1,6 @@
 /* Fonts are hosted locally (no connection to Google servers, GDPR-friendly). */
 @font-face { font-family: "DM Sans"; src: url("fonts/dm-sans-latin.woff2") format("woff2"); font-weight: 100 1000; font-display: swap; }
+@font-face { font-family: "Arvo"; src: url("fonts/arvo-bold-latin.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 
 :root {
@@ -11,7 +12,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -27,11 +28,25 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; text-w
 /* Navigation */
 .header { position: sticky; top: 0; z-index: 20; background: #f8f7f3f5; border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); transition: box-shadow .3s; }
 .header.scrolled { box-shadow: 0 10px 30px #142c4312; }
-.nav { display: flex; justify-content: space-between; align-items: center; min-height: 86px; gap: 24px; transition: min-height .3s; }
-.header.scrolled .nav { min-height: 66px; }
+.nav { display: flex; justify-content: space-between; align-items: center; min-height: 112px; gap: 24px; transition: min-height .3s; }
+.header.scrolled .nav { min-height: 74px; }
 .progress { position: fixed; top: 0; left: 0; right: 0; z-index: 30; height: 3px; background: var(--yellow); transform: scaleX(0); transform-origin: left; }
-.logo { font-family: "Manrope", sans-serif; font-size: 29px; font-weight: 800; letter-spacing: -.075em; }
-.logo span { color: #a47710; }
+.logo { --logo-ink: var(--ink); --logo-paper: var(--paper); --logo-gold: #c9962a; display: inline-block; color: var(--logo-ink); font-family: "Arvo", Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1; }
+.header .logo { font-size: 54px; transition: font-size .3s; }
+.header.scrolled .logo { font-size: 36px; }
+.brand { display: flex; align-items: center; }
+.brand-tag { margin-left: 20px; padding: 6px 0 6px 20px; border-left: 2px solid #c9962a; font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
+.logo-word { position: relative; display: block; padding-bottom: .1em; letter-spacing: .01em; white-space: nowrap; }
+.logo-word::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .04em; background: var(--logo-gold); transform-origin: left; }
+.logo-l { display: inline-block; }
+/* The "O": a sun rising out of an open book. */
+.logo-o { width: .92em; height: .92em; margin: 0 .005em; vertical-align: -.01em; overflow: visible; }
+.logo-o path, .logo-o g { transform-box: fill-box; }
+.logo-sun, .logo-sun-pulse { transform-origin: 50% 100%; }
+/* width: 0 + min-width keeps the tagline lines exactly as wide as the word mark. */
+.logo-sub, .logo-city { display: block; width: 0; height: auto; fill: currentColor; font-size: 25px; overflow: visible; }
+.logo-sub { min-width: 100%; margin-top: .13em; }
+.logo-city { min-width: 56%; margin: .06em auto 0; font-size: 24px; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { font-size: 13px; font-weight: 700; padding-block: 12px; }
 .nav-links a:not(.nav-button) { position: relative; }
@@ -127,7 +142,6 @@ h1 .accent { color: #a47710; }
 .price-card.highlight .price-bottom { border-color: #ffffff35; }
 .price-bottom strong { font-family: "Manrope", sans-serif; font-size: 46px; letter-spacing: -.06em; }
 .price-bottom span { font-size: 12px; color: var(--ink-soft); }
-.demo-note { margin-top: 24px; color: #52616b; font-size: 12px; line-height: 1.7; }
 .closing { background: var(--yellow); padding: 90px 0; }
 .closing { overflow: clip; }
 .closing-grid { display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 60px; }
@@ -150,7 +164,7 @@ h1 .accent { color: #a47710; }
 .faq-item p { margin: 0; padding: 0 56px 26px 0; color: var(--ink-soft); font-size: 15px; line-height: 1.8; }
 footer { background: #102538; color: white; padding: 48px 0; }
 .footer-grid { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
-footer .logo span { color: var(--yellow); }
+footer .logo { --logo-ink: white; --logo-paper: #102538; --logo-gold: var(--yellow); font-size: 46px; }
 footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; }
 .footer-right { text-align: right; }
 
@@ -173,6 +187,8 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 .contact-email { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-top: 24px; }
 .contact-email > span, .contact-email small { font-size: 12px; }
 .contact-email strong { color: var(--ink); font-size: 20px; }
+.contact-email + .contact-email { margin-top: 10px; }
+.route-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: #936b14; text-decoration: underline; text-underline-offset: 3px; }
 .contact-steps { list-style: none; padding: 0; margin: 38px 0 0; }
 .contact-steps li { display: flex; gap: 18px; padding: 22px 0; border-top: 1px solid #d7d8d0; }
 .contact-steps li > span { display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--yellow); font-size: 12px; font-weight: 700; }
@@ -247,6 +263,13 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 @keyframes float { from { translate: 0 0; } to { translate: 0 -14px; } }
 @keyframes bob { from { transform: rotate(-2deg) translateY(0); } to { transform: rotate(2deg) translateY(-12px); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes tag-in { from { opacity: 0; transform: translateX(-16px); } }
+@keyframes logo-slide { from { transform: scaleX(0); } }
+@keyframes logo-open { from { opacity: 0; transform: scaleY(.2); } }
+@keyframes logo-draw { from { stroke-dashoffset: 1; } }
+@keyframes logo-pop { from { opacity: 0; transform: scale(0); } }
+@keyframes logo-glow { 50% { transform: scale(1.25); filter: drop-shadow(0 0 6px #f6c443); } }
+@keyframes logo-shine { 50% { transform: scale(1.1); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes word-in { from { transform: translateY(110%) rotate(3deg); } to { transform: none; } }
@@ -261,6 +284,20 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .hero-copy .primary-link { animation-delay: .9s; }
   .hero-visual img { animation: photo-in 1.3s cubic-bezier(.16,1,.3,1) .2s both; }
   .photo-label { animation: label-in .9s 1s both; }
+  /* Header logo builds itself: letters rise, book opens, arc draws, rays shine. */
+  .header .logo-l { animation: fade-up .7s cubic-bezier(.16,1,.3,1) .1s backwards; }
+  .header .logo-l2 { animation-delay: .25s; }
+  .header .logo-book, .header .logo-pages { transform-origin: bottom; animation: logo-open .7s cubic-bezier(.16,1,.3,1) .35s backwards; }
+  .header .logo-arc { stroke-dasharray: 1; animation: logo-draw .9s ease-out .6s backwards; }
+  .header .logo-rays { transform-origin: bottom; animation: logo-pop .6s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, logo-shine 3.5s ease-in-out 2.5s infinite; }
+  /* Hovering the logo: the sun grows out of the "O" and keeps pulsing; it eases back when the pointer leaves.
+     Kept on wrapper groups so the rays' own entrance animation never restarts. */
+  .logo-sun { transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
+  .logo:hover .logo-sun { transform: scale(1.6); }
+  .logo:hover .logo-sun-pulse { animation: logo-glow 1.2s ease-in-out .3s infinite; }
+  .header .logo-word::after { animation: logo-slide .9s cubic-bezier(.16,1,.3,1) .7s backwards; }
+  .header .logo-sub { animation: fade-up .7s 1s backwards; }
+  .brand-tag { animation: tag-in .8s cubic-bezier(.16,1,.3,1) 1.4s backwards; }
   .blobs span { animation: drift 14s ease-in-out infinite alternate; }
   .blobs span:nth-child(2) { animation-duration: 18s; animation-direction: alternate-reverse; }
   .blobs span:nth-child(3) { animation-duration: 11s; }
@@ -295,10 +332,10 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .price-card { padding-inline: 22px; }
   .faq-grid { gap: 40px; }
 }
-@media (max-width: 800px) {
-  .container { width: calc(100% - 40px); }
-  .nav { min-height: 70px; flex-wrap: wrap; gap: 0; }
-  .header.scrolled .nav { min-height: 62px; }
+@media (max-width: 1100px) {
+  .header .logo { font-size: 46px; }
+  .nav { min-height: 84px; flex-wrap: wrap; gap: 0; }
+  .header.scrolled .nav { min-height: 64px; }
   .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; gap: 10px; }
   .nav-links { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 0 0 20px; }
   .nav-links.collapsible { display: none; }
@@ -306,6 +343,12 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .nav-links a:not(.nav-button) { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
   .nav-links a:not(.nav-button)::after { display: none; }
   .nav-links .nav-button { display: flex; justify-content: center; gap: 8px; margin-top: 18px; padding: 16px; font-size: 14px; }
+}
+@media (max-width: 800px) {
+  .container { width: calc(100% - 40px); }
+  .header .logo { font-size: 34px; }
+  .brand-tag { margin-left: 12px; padding: 4px 0 4px 12px; font-size: 10px; letter-spacing: .18em; }
+  .header.scrolled .logo { font-size: 29px; }
 
   .hero { padding: 40px 0 56px; }
   .hero-grid, .approach-grid { grid-template-columns: 1fr; gap: 40px; }

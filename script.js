@@ -1,6 +1,6 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
-const mobile = window.matchMedia('(max-width: 800px)');
+const mobile = window.matchMedia('(max-width: 1100px)');
 const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function closeMenu() {
