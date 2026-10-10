@@ -58,18 +58,22 @@ if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in wind
   subjectRows.forEach((row) => centerObserver.observe(row));
 }
 
-// Header shadow, reading progress and hero parallax.
+// Header shadow, reading progress, hero parallax and the plane on the progress bar.
 const header = document.querySelector('.header');
 const progress = document.querySelector('.progress');
 const heroVisual = document.querySelector('.hero-visual');
+const progressPlane = document.querySelector('.progress-plane');
 let ticking = false;
 
 function onScroll() {
   const y = window.scrollY;
   const max = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = max > 0 ? Math.min(1, y / max) : 0;
   header.classList.toggle('scrolled', y > 20);
-  progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+  progress.style.transform = `scaleX(${ratio})`;
   heroVisual.style.translate = motion.matches ? '' : `0 ${Math.min(y, 900) * 0.1}px`;
+  progressPlane.style.left = `${ratio * 100}%`;
+  progressPlane.style.opacity = ratio > 0.01 ? '1' : '0';
   ticking = false;
 }
 window.addEventListener('scroll', () => {

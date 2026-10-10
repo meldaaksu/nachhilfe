@@ -1,6 +1,5 @@
 /* Fonts are hosted locally (no connection to Google servers, GDPR-friendly). */
 @font-face { font-family: "DM Sans"; src: url("fonts/dm-sans-latin.woff2") format("woff2"); font-weight: 100 1000; font-display: swap; }
-@font-face { font-family: "Arvo"; src: url("fonts/arvo-bold-latin.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("fonts/manrope-latin.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 
 :root {
@@ -28,25 +27,32 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; text-w
 /* Navigation */
 .header { position: sticky; top: 0; z-index: 20; background: #f8f7f3f5; border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); transition: box-shadow .3s; }
 .header.scrolled { box-shadow: 0 10px 30px #142c4312; }
-.nav { display: flex; justify-content: space-between; align-items: center; min-height: 112px; gap: 24px; transition: min-height .3s; }
+.nav { display: flex; justify-content: space-between; align-items: center; min-height: 144px; gap: 24px; transition: min-height .3s; }
 .header.scrolled .nav { min-height: 74px; }
 .progress { position: fixed; top: 0; left: 0; right: 0; z-index: 30; height: 3px; background: var(--yellow); transform: scaleX(0); transform-origin: left; }
-.logo { --logo-ink: var(--ink); --logo-paper: var(--paper); --logo-gold: #c9962a; display: inline-block; color: var(--logo-ink); font-family: "Arvo", Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1; }
-.header .logo { font-size: 54px; transition: font-size .3s; }
-.header.scrolled .logo { font-size: 36px; }
+.logo { display: inline-block; }
+.logo-art { position: relative; display: block; }
+.logo-fly { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+/* The logo is drawn inside the SVG between two copies of the plane, so the plane can pass behind or in front of it (logo.js). */
+.logo-art .logo-img { visibility: hidden; }
+.logo-plane-back { opacity: 0; }
+.logo-plane path { fill: #0b214c; stroke: #0b214c; stroke-width: 4; stroke-linejoin: round; }
+.logo-img { display: block; width: auto; height: 116px; transition: height .3s, transform .4s cubic-bezier(.34,1.56,.64,1); }
+.header.scrolled .logo-img { height: 64px; }
+.logo-art { transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+.logo:hover .logo-art, .logo:hover .logo-img { transform: scale(1.04) rotate(-1.5deg); }
 .brand { display: flex; align-items: center; }
-.brand-tag { margin-left: 20px; padding: 6px 0 6px 20px; border-left: 2px solid #c9962a; font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
-.logo-word { position: relative; display: block; padding-bottom: .1em; letter-spacing: .01em; white-space: nowrap; }
-.logo-word::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: .04em; background: var(--logo-gold); transform-origin: left; }
-.logo-l { display: inline-block; }
-/* The "O": a sun rising out of an open book. */
-.logo-o { width: .92em; height: .92em; margin: 0 .005em; vertical-align: -.01em; overflow: visible; }
-.logo-o path, .logo-o g { transform-box: fill-box; }
-.logo-sun, .logo-sun-pulse { transform-origin: 50% 100%; }
-/* width: 0 + min-width keeps the tagline lines exactly as wide as the word mark. */
-.logo-sub, .logo-city { display: block; width: 0; height: auto; fill: currentColor; font-size: 25px; overflow: visible; }
-.logo-sub { min-width: 100%; margin-top: .13em; }
-.logo-city { min-width: 56%; margin: .06em auto 0; font-size: 24px; }
+.brand-tag { margin-left: 20px; padding: 6px 0 6px 20px; border-left: 2px solid #f5ad1b; font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
+
+/* Paper plane: the plane in the logo flies loops, a plane rides the progress bar on phones, small planes land at section labels. */
+.progress-plane svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 4px 6px #142c4333); }
+.progress-plane { position: fixed; top: -5px; left: 0; z-index: 31; display: none; width: 20px; height: 20px; margin-left: -12px; color: var(--ink); pointer-events: none; transform: rotate(45deg); }
+@media (max-width: 1279px), (hover: none) {
+  .progress-plane { display: block; }
+}
+main section:not(.hero) .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+main section:not(.hero) .eyebrow::before { content: ""; width: 20px; height: 20px; flex-shrink: 0; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M88%2012Q56%2036%2021%2050L36%2052%2040%2076Q60%2042%2088%2012Z%22%20fill%3D%22%23142c43%22%20stroke%3D%22%23142c43%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat; }
+.but .eyebrow::before { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M88%2012Q56%2036%2021%2050L36%2052%2040%2076Q60%2042%2088%2012Z%22%20fill%3D%22%23eec34f%22%20stroke%3D%22%23eec34f%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") !important; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { font-size: 13px; font-weight: 700; padding-block: 12px; }
 .nav-links a:not(.nav-button) { position: relative; }
@@ -164,7 +170,10 @@ h1 .accent { color: #a47710; }
 .faq-item p { margin: 0; padding: 0 56px 26px 0; color: var(--ink-soft); font-size: 15px; line-height: 1.8; }
 footer { background: #102538; color: white; padding: 48px 0; }
 .footer-grid { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
-footer .logo { --logo-ink: white; --logo-paper: #102538; --logo-gold: var(--yellow); font-size: 46px; }
+footer .logo-img { height: 92px; }
+/* Logo and slogan share one centre line; the slogan is wider than the logo. */
+.footer-brand { display: inline-flex; flex-direction: column; align-items: center; }
+.footer-slogan img { display: block; width: 210px; max-width: 100%; height: auto; margin-top: 8px; }
 footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; }
 .footer-right { text-align: right; }
 .footer-parent { margin-top: 34px; padding-top: 22px; border-top: 1px solid #ffffff1f; }
@@ -282,13 +291,9 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 @keyframes float { from { translate: 0 0; } to { translate: 0 -14px; } }
 @keyframes bob { from { transform: rotate(-2deg) translateY(0); } to { transform: rotate(2deg) translateY(-12px); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes logo-in { from { opacity: 0; transform: translateY(-12px) scale(.92); } }
+@keyframes plane-land { from { opacity: 0; transform: translate(-80px, 46px) rotate(-30deg) scale(.5); } 60% { opacity: 1; } }
 @keyframes tag-in { from { opacity: 0; transform: translateX(-16px); } }
-@keyframes logo-slide { from { transform: scaleX(0); } }
-@keyframes logo-open { from { opacity: 0; transform: scaleY(.2); } }
-@keyframes logo-draw { from { stroke-dashoffset: 1; } }
-@keyframes logo-pop { from { opacity: 0; transform: scale(0); } }
-@keyframes logo-glow { 50% { transform: scale(1.25); filter: drop-shadow(0 0 6px #f6c443); } }
-@keyframes logo-shine { 50% { transform: scale(1.1); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes word-in { from { transform: translateY(110%) rotate(3deg); } to { transform: none; } }
@@ -303,19 +308,10 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .hero-copy .primary-link { animation-delay: .9s; }
   .hero-visual img { animation: photo-in 1.3s cubic-bezier(.16,1,.3,1) .2s both; }
   .photo-label { animation: label-in .9s 1s both; }
-  /* Header logo builds itself: letters rise, book opens, arc draws, rays shine. */
-  .header .logo-l { animation: fade-up .7s cubic-bezier(.16,1,.3,1) .1s backwards; }
-  .header .logo-l2 { animation-delay: .25s; }
-  .header .logo-book, .header .logo-pages { transform-origin: bottom; animation: logo-open .7s cubic-bezier(.16,1,.3,1) .35s backwards; }
-  .header .logo-arc { stroke-dasharray: 1; animation: logo-draw .9s ease-out .6s backwards; }
-  .header .logo-rays { transform-origin: bottom; animation: logo-pop .6s cubic-bezier(.34,1.56,.64,1) 1.1s backwards, logo-shine 3.5s ease-in-out 2.5s infinite; }
-  /* Hovering the logo: the sun grows out of the "O" and keeps pulsing; it eases back when the pointer leaves.
-     Kept on wrapper groups so the rays' own entrance animation never restarts. */
-  .logo-sun { transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
-  .logo:hover .logo-sun { transform: scale(1.6); }
-  .logo:hover .logo-sun-pulse { animation: logo-glow 1.2s ease-in-out .3s infinite; }
-  .header .logo-word::after { animation: logo-slide .9s cubic-bezier(.16,1,.3,1) .7s backwards; }
-  .header .logo-sub { animation: fade-up .7s 1s backwards; }
+  .header .logo-art { animation: logo-in .9s cubic-bezier(.16,1,.3,1) .1s backwards; }
+  /* A small plane flies in and lands next to each section label as the section appears. */
+  main section:not(.hero) .reveal:not(.visible) .eyebrow::before { opacity: 0; }
+  main section:not(.hero) .visible .eyebrow::before { animation: plane-land 1.1s cubic-bezier(.22,1,.36,1) .2s backwards; }
   .brand-tag { animation: tag-in .8s cubic-bezier(.16,1,.3,1) 1.4s backwards; }
   .blobs span { animation: drift 14s ease-in-out infinite alternate; }
   .blobs span:nth-child(2) { animation-duration: 18s; animation-direction: alternate-reverse; }
@@ -354,8 +350,8 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .faq-grid { gap: 40px; }
 }
 @media (max-width: 1250px) {
-  .header .logo { font-size: 46px; }
-  .nav { min-height: 84px; flex-wrap: wrap; gap: 0; }
+  .logo-img { height: 96px; }
+  .nav { min-height: 116px; flex-wrap: wrap; gap: 0; }
   .header.scrolled .nav { min-height: 64px; }
   .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; gap: 10px; }
   .nav-links { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 0 0 20px; }
@@ -367,11 +363,11 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 }
 @media (max-width: 800px) {
   .container { width: calc(100% - 40px); }
-  .header .logo { font-size: 42px; }
+  .logo-img { height: 86px; }
   .info-grid { grid-template-columns: 1fr; gap: 12px; }
   .contact-info { padding: 52px 0; }
   .brand-tag { margin-left: 12px; padding: 4px 0 4px 12px; font-size: 10px; letter-spacing: .18em; }
-  .header.scrolled .logo { font-size: 29px; }
+  .header.scrolled .logo-img { height: 56px; }
 
   .hero { padding: 40px 0 56px; }
   .hero-grid, .approach-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -439,7 +435,7 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 }
 @media (max-width: 480px) {
   .contact-form { padding: 24px 20px; }
-  .header .logo { font-size: 38px; }
+  .logo-img { height: 76px; }
   .menu-label { display: none; }
   .menu-toggle:not([hidden]) { padding: 8px 14px; font-size: 24px; line-height: 1; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
