@@ -34,14 +34,29 @@ syncMenu();
 const track = document.querySelector('.marquee-track');
 track.append(...[...track.children].map((item) => item.cloneNode(true)));
 
-// Language speech bubbles: show the next phrase on every hover.
-document.querySelectorAll('.bubble').forEach((bubble) => {
+// Subjects: language rows show the next phrase in their speech bubble each time they open.
+const subjectRows = [...document.querySelectorAll('.subject-row')];
+const nextPhrase = new Map();
+subjectRows.forEach((row) => {
+  const bubble = row.querySelector('.bubble');
+  if (!bubble) return;
   const phrases = bubble.dataset.phrases.split('|');
   let index = 0;
-  bubble.closest('.subject-row').addEventListener('mouseenter', () => {
-    bubble.textContent = phrases[index++ % phrases.length];
-  });
+  nextPhrase.set(row, () => { bubble.textContent = phrases[index++ % phrases.length]; });
+  row.addEventListener('mouseenter', nextPhrase.get(row));
 });
+
+// Phones have no hover: the row passing the middle of the screen opens instead.
+if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+  const centerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting || entry.target.classList.contains('is-active')) return;
+      subjectRows.forEach((row) => row.classList.toggle('is-active', row === entry.target));
+      nextPhrase.get(entry.target)?.();
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  subjectRows.forEach((row) => centerObserver.observe(row));
+}
 
 // Header shadow, reading progress and hero parallax.
 const header = document.querySelector('.header');
