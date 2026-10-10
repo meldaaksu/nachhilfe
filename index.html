@@ -1,177 +1,696 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-          content=" Nachhilfe in Darmstadt – individuelle Förderung für die Klassen 3 bis 13.">
-    <title> Nachhilfe | Darmstadt</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Moderne Nachhilfe für die Klassen 3 bis 13.">
+  <title>Nachhilfe – Gemeinsam mehr erreichen</title>
+
+  <style>
+    :root {
+      --navy: #102b49;
+      --navy2: #173c60;
+      --yellow: #f6c44f;
+      --cream: #fffaf0;
+      --light: #f2f6fa;
+      --text: #24384d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      background: white;
+      border-bottom: 1px solid #edf0f4;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .brand span { color: #e5a81e; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: #c48d18; }
+
+    .nav-cta {
+      background: var(--yellow);
+      padding: 12px 20px;
+      border-radius: 30px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, #fff0c8 0, transparent 35%),
+        linear-gradient(135deg, #fffaf0, #f3f8fd);
+      padding: 85px 0 105px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #a47a1e;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(45px, 5.5vw, 75px);
+      letter-spacing: -3px;
+      margin: 0 0 25px;
+    }
+
+    h1 span {
+      color: #d9a52d;
+    }
+
+    .hero p {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #526579;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 40px;
+      padding: 15px 26px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .btn-dark {
+      color: white;
+      background: var(--navy);
+    }
+
+    .btn-yellow {
+      color: var(--navy);
+      background: var(--yellow);
+    }
+
+    /* HERO IMAGE */
+
+    .hero-image {
+      position: relative;
+      padding: 18px;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 45% 55% 45% 55%;
+      background: var(--yellow);
+      transform: rotate(-9deg);
+    }
+
+    .hero-image img {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 38% 38% 24px 24px;
+      display: block;
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: 28px;
+      left: -18px;
+      padding: 20px 24px;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 15px 40px #102b4920;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    /* SHARED SECTIONS */
+
+    section.content {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 4vw, 47px);
+      margin: 0 0 18px;
+    }
+
+    .section-heading p {
+      color: #617184;
+      line-height: 1.7;
+    }
+
+    /* SUBJECTS */
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .subject {
+      min-height: 185px;
+      padding: 28px 15px;
+      border-radius: 22px;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      text-align: center;
+      box-shadow: 0 10px 24px #102b4914;
+      transition: transform .2s;
+    }
+
+    .subject:hover { transform: translateY(-6px); }
+
+    .subject:nth-child(2),
+    .subject:nth-child(4) {
+      background: var(--navy2);
+    }
+
+    .subject .icon { font-size: 40px; }
+
+    .subject strong { font-size: 17px; }
+
+    /* BENEFITS */
+
+    .benefits {
+      background: var(--navy);
+      color: white;
+    }
+
+    .benefits .section-heading h2 {
+      color: white;
+    }
+
+    .benefits .section-heading p {
+      color: #d4e1ed;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .benefit {
+      padding: 32px;
+      border: 1px solid #ffffff25;
+      border-radius: 22px;
+      background: #ffffff0b;
+    }
+
+    .benefit .symbol {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .benefit h3 {
+      color: white;
+      font-size: 21px;
+    }
+
+    .benefit p {
+      color: #d4e1ed;
+      line-height: 1.7;
+    }
+
+    /* PRICES */
+
+    .prices {
+      background: var(--light);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .price-card {
+      background: white;
+      border-radius: 26px;
+      padding: 35px 28px;
+      box-shadow: 0 12px 35px #102b4910;
+      border-top: 6px solid var(--yellow);
+    }
+
+    .price-card.featured {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-10px);
+    }
+
+    .price-card.featured h3,
+    .price-card.featured .amount {
+      color: white;
+    }
+
+    .price-card h3 {
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .price-card p {
+      line-height: 1.8;
+      opacity: .85;
+    }
+
+    .amount {
+      display: block;
+      margin: 25px 0;
+      font-size: 43px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .amount small {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--yellow);
+      padding: 85px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 18px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0b2037;
+      color: #d5e0e9;
+      padding: 45px 0;
+      text-align: center;
+    }
+
+    footer strong {
+      display: block;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .subject-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .benefit-grid,
+      .price-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav {
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+      }
+
+      .hero-image img {
+        height: 340px;
+      }
+
+      .floating-note {
+        left: 0;
+        bottom: 5px;
+      }
+
+      section.content {
+        padding: 65px 0;
+      }
+
+      .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefit-grid,
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container header-inner">
-        <a href="#start" class="logo">
-            F<span>O</span>KUS
-            <small>NACHHILFE · DARMSTADT</small>
+  <header>
+    <div class="container nav">
+      <a href="#start" class="brand">nach<span>hilfe.</span></a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#start">Start</a>
+        <a href="#faecher">Fächer</a>
+        <a href="#vorteile">Über uns</a>
+        <a href="#preise">Angebote</a>
+        <a href="#kontakt" class="nav-cta">Mehr erfahren ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- START -->
+
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow">Lernen mit Freude · Klassen 3–13</span>
+
+          <h1>
+            Gemeinsam lernen.<br>
+            <span>Mehr erreichen.</span>
+          </h1>
+
+          <p>
+            Jeder Lernweg ist einzigartig.
+            Mit individueller Unterstützung, verständlichen
+            Erklärungen und einer positiven Lernatmosphäre
+            begleiten wir Schülerinnen und Schüler
+            auf ihrem Weg zum Erfolg.
+          </p>
+
+          <div class="buttons">
+            <a href="#preise" class="btn btn-dark">Unsere Angebote →</a>
+            <a href="#faecher" class="btn btn-yellow">Fächer entdecken</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=85"
+            alt="Lernmaterialien auf einem Schreibtisch">
+          <div class="floating-note">
+            ✨ Schritt für Schritt zum Erfolg
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FÄCHER -->
+
+    <section class="content" id="faecher">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Unsere Fächer</span>
+          <h2>Für jedes Fach die passende Unterstützung.</h2>
+          <p>
+            Ob Hausaufgaben, Klassenarbeiten oder Prüfungsvorbereitung:
+            Gemeinsam arbeiten wir an deinen Lernzielen.
+          </p>
+        </div>
+
+        <div class="subject-grid">
+          <div class="subject">
+            <span class="icon">📐</span>
+            <strong>Mathematik</strong>
+          </div>
+
+          <div class="subject">
+            <span class="icon">📖</span>
+            <strong>Deutsch</strong>
+          </div>
+
+          <div class="subject">
+            <span class="icon">🌍</span>
+            <strong>Englisch</strong>
+          </div>
+
+          <div class="subject">
+            <span class="icon">🇫🇷</span>
+            <strong>Französisch</strong>
+          </div>
+
+          <div class="subject">
+            <span class="icon">🧪</span>
+            <strong>Chemie</strong>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VORTEILE -->
+
+    <section class="content benefits" id="vorteile">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Warum Nachhilfe?</span>
+          <h2>Weil Lernen mehr sein kann als Auswendiglernen.</h2>
+          <p>
+            Wir schaffen Raum für Fragen, Verständnis
+            und neue Motivation.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+
+          <article class="benefit">
+            <div class="symbol">🎯</div>
+            <h3>Individuelle Förderung</h3>
+            <p>
+              Wir orientieren uns am Lerntempo
+              und den Bedürfnissen jedes Kindes.
+            </p>
+          </article>
+
+          <article class="benefit">
+            <div class="symbol">💡</div>
+            <h3>Einfach erklärt</h3>
+            <p>
+              Schwierige Themen werden Schritt
+              für Schritt verständlich.
+            </p>
+          </article>
+
+          <article class="benefit">
+            <div class="symbol">🌱</div>
+            <h3>Mehr Selbstvertrauen</h3>
+            <p>
+              Kleine Lernerfolge stärken die Motivation
+              und das Vertrauen in die eigenen Fähigkeiten.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PREISE -->
+
+    <section class="content prices" id="preise">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Unsere Lernangebote</span>
+          <h2>Das passende Angebot für deinen Lernweg.</h2>
+          <p>Flexible Lernmodelle für unterschiedliche Bedürfnisse.</p>
+        </div>
+
+        <div class="price-grid">
+
+          <article class="price-card">
+            <h3>Gruppenunterricht</h3>
+            <p><strong>3–5 Lernende</strong></p>
+            <p>1 × pro Woche<br>90 Minuten</p>
+            <span class="amount">60 € <small>/ Monat</small></span>
+            <p>Gemeinsam lernen und sich gegenseitig motivieren.</p>
+          </article>
+
+          <article class="price-card featured">
+            <h3>Kleine Lerngruppe</h3>
+            <p><strong>2 Lernende</strong></p>
+            <p>1 × pro Woche<br>75 Minuten</p>
+            <span class="amount">75 € <small>/ Monat</small></span>
+            <p>Mehr persönliche Betreuung in einer kleinen Gruppe.</p>
+          </article>
+
+          <article class="price-card">
+            <h3>Einzelunterricht</h3>
+            <p><strong>Individuelle Betreuung</strong></p>
+            <p>1 × pro Woche<br>60 Minuten</p>
+            <span class="amount">130 € <small>/ Monat</small></span>
+            <p>Volle Aufmerksamkeit für persönliche Lernziele.</p>
+          </article>
+
+        </div>
+
+        <p style="text-align:center;margin-top:35px;color:#68788a;font-size:13px">
+          Beispielpreise für dieses Website-Demoprojekt.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- KONTAKT / CTA -->
+
+    <section class="cta" id="kontakt">
+      <div class="container">
+        <span class="eyebrow" style="color:#775718">
+          Gemeinsam zum Lernerfolg
+        </span>
+
+        <h2>Bereit für den nächsten Schritt?</h2>
+
+        <p>
+          Gute Nachhilfe beginnt mit Verständnis,
+          Vertrauen und der richtigen Unterstützung.
+          Entdecke, wie Lernen wieder Freude machen kann.
+        </p>
+
+        <a href="#start" class="btn btn-dark">
+          Zurück nach oben ↑
         </a>
-
-        <nav aria-label="Hauptnavigation">
-            <a href="#start">Start</a>
-            <a href="#faecher">Fächer</a>
-            <a href="#vorteile">Vorteile</a>
-            <a href="#preise">Preise</a>
-            <a href="#kontakt">Kontakt</a>
-        </nav>
-    </div>
-</header>
-
-<main>
-
-    <section id="start" class="hero">
-        <div class="container hero-grid">
-            <div>
-                <span class="label">NACHHILFE FÜR DIE KLASSEN 3–13</span>
-                <h1>Gemeinsam zu <em>besseren Noten.</em></h1>
-
-                <h2>Individuelle Nachhilfe für nachhaltigen Lernerfolg.</h2>
-
-                <p>
-                    Verstehen. Lernen. Erfolgreich sein.
-                    Wir begleiten Schülerinnen und Schüler
-                    auf ihrem individuellen Lernweg.
-                </p>
-
-                <a href="#preise" class="button">Unsere Angebote entdecken →</a>
-            </div>
-
-            <div class="hero-card">
-                <div class="hero-icon">📚</div>
-                <h2>Gemeinsam lernen.</h2>
-                <p>Selbstständig weiterkommen.</p>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section id="faecher" class="section">
-        <div class="container">
-            <div class="section-title">
-                <span class="label">UNSERE FÄCHER</span>
-                <h2>Wir helfen dir weiter.</h2>
-                <p>Die passende Unterstützung für deine schulischen Ziele.</p>
-            </div>
+  </main>
 
-            <div class="subjects">
-                <div>📐 <strong>Mathematik</strong></div>
-                <div>📖 <strong>Deutsch</strong></div>
-                <div>🧪 <strong>Chemie</strong></div>
-                <div>🇫🇷 <strong>Französisch</strong></div>
-                <div>🌍 <strong>Englisch</strong></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="vorteile" class="section benefits">
-        <div class="container">
-            <span class="label">WARUM FOKUS?</span>
-            <h2>Nachhilfe, die wirklich weiterhilft.</h2>
-
-            <div class="benefits-grid">
-                <p>✓ Qualifizierte und engagierte Nachhilfelehrerinnen</p>
-                <p>✓ Individuelle Förderung</p>
-                <p>✓ Lernen in angenehmer Atmosphäre</p>
-                <p>✓ Flexibel: online oder vor Ort</p>
-                <p>✓ Zentrale Lage in Darmstadt</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container grade-box">
-            <div class="grade-icon">🎓</div>
-            <div>
-                <span class="label">KLASSEN 3 BIS 13</span>
-                <h2>Schritt für Schritt zum Erfolg.</h2>
-                <p>
-                    Wir stärken fachliche Grundlagen und
-                    begleiten Schülerinnen und Schüler
-                    auf ihrem Weg zum Erfolg.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="preise" class="section pricing">
-        <div class="container">
-            <div class="section-title">
-                <span class="label">UNSERE ANGEBOTE</span>
-                <h2>Das passende Lernmodell für dich.</h2>
-            </div>
-
-            <div class="price-grid">
-
-                <article class="price-card blue">
-                    <div class="price-icon">👥</div>
-                    <h3>Gruppenunterricht</h3>
-
-                    <h4>Zweiergruppe</h4>
-                    <p>1× pro Woche · 75 Minuten</p>
-                    <strong class="price">75 € <small>/ Monat</small></strong>
-
-                    <hr>
-
-                    <h4>3–5er-Gruppe</h4>
-                    <p>1× pro Woche · 90 Minuten</p>
-                    <strong class="price">60 € <small>/ Monat</small></strong>
-                </article>
-
-                <article class="price-card yellow">
-                    <div class="price-icon">👤</div>
-                    <h3>Einzelunterricht</h3>
-                    <p>Individuelle Betreuung</p>
-                    <p>1× pro Woche · 60 Minuten</p>
-                    <strong class="price">130 € <small>/ Monat</small></strong>
-                </article>
-
-                <article class="price-card green">
-                    <div class="price-icon">💻</div>
-                    <h3>Online oder vor Ort</h3>
-                    <p>✓ Flexibel lernen</p>
-                    <p>✓ Online-Unterricht von zu Hause</p>
-                    <p>✓ Persönlich vor Ort in Darmstadt</p>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="kontakt" class="section contact">
-        <div class="container contact-grid">
-            <div>
-                <span class="label">KONTAKT</span>
-                <h2>Jetzt unverbindlich beraten lassen!</h2>
-                <p>Wir freuen uns auf deine Anfrage.</p>
-            </div>
-
-            <div class="contact-card">
-                <h3> Nachhilfe</h3>
-                <p>📍 musterstrasse <br> muster</p>
-                <p>📞 Telefonnummer: Bitte ergänzen</p>
-                <p>✉️ E-Mail: Bitte ergänzen</p>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer>
+  <footer>
     <div class="container">
-        <strong> Nachhilfe · Darmstadt</strong>
-        <p>Gemeinsam lernen. Selbstständig weiterkommen.</p>
+      <strong>nachhilfe.</strong>
+      <p>Gemeinsam lernen. Mehr erreichen.</p>
+      <p>Demo-Website · Beispielprojekt · Keine echte Buchungsplattform</p>
     </div>
-</footer>
+  </footer>
 
 </body>
 </html>
