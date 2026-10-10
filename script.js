@@ -1,6 +1,6 @@
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
-const mobile = window.matchMedia('(max-width: 1100px)');
+const mobile = window.matchMedia('(max-width: 1250px)');
 const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function closeMenu() {
@@ -81,8 +81,8 @@ window.addEventListener('scroll', () => {
 onScroll();
 
 if (!motion.matches && 'IntersectionObserver' in window) {
-  const elements = document.querySelectorAll('.section-top, .subject-row, .feature, .price-card, .learning-option, .approach-photo, .closing-grid, .contact-copy, .contact-form, .faq-item');
-  const staggered = '.subject-row, .feature, .price-card, .learning-option, .faq-item';
+  const elements = document.querySelectorAll('.section-top, .subject-row, .feature, .price-card, .learning-option, .approach-photo, .closing-grid, .contact-copy, .contact-form, .faq-item, .info-card');
+  const staggered = '.subject-row, .feature, .price-card, .learning-option, .faq-item, .info-card';
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
