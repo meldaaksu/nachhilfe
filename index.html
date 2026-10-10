@@ -10,150 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  /* ===== ANIMATIONS ===== */
-
-/* Sayfa açılış animasyonu */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes imageReveal {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.hero-copy .eyebrow {
-  animation: fadeUp .7s ease both;
-}
-
-.hero-copy h1 {
-  animation: fadeUp .9s .15s ease both;
-}
-
-.hero-copy > p {
-  animation: fadeUp .9s .3s ease both;
-}
-
-.hero-copy .primary-link {
-  animation: fadeUp .9s .45s ease both;
-}
-
-.hero-visual {
-  animation: imageReveal 1.2s .2s ease both;
-}
-
-/* Scroll animasyonları */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Menü bağlantıları */
-
-.nav-links a:not(.nav-button) {
-  position: relative;
-}
-
-.nav-links a:not(.nav-button)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 100%;
-  height: 2px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .3s ease;
-}
-
-.nav-links a:not(.nav-button):hover::after {
-  transform: scaleX(1);
-}
-
-/* Ders listesi */
-
-.subject-row {
-  position: relative;
-}
-
-.subject-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .45s ease;
-}
-
-.subject-row:hover::before {
-  transform: scaleX(1);
-}
-
-/* Fiyat kartları */
-
-.price-card {
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-.price-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(20,44,67,.12);
-}
-
-/* Hareket azaltma tercihi */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-copy .eyebrow,
-  .hero-copy h1,
-  .hero-copy > p,
-  .hero-copy .primary-link,
-  .hero-visual {
-    animation: none !important;
-  }
-
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .price-card,
-  .subject-row,
-  .subject-row::before,
-  .nav-links a::after {
-    transition: none !important;
-  }
-}
+  
   <style>
     :root {
       --ink: #142c43;
@@ -771,6 +628,150 @@
         transition-duration: .01ms !important;
       }
     }
+
+    /* ===== ANIMATIONS ===== */
+
+/* Sayfa açılış animasyonu */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-copy .eyebrow {
+  animation: fadeUp .7s ease both;
+}
+
+.hero-copy h1 {
+  animation: fadeUp .9s .15s ease both;
+}
+
+.hero-copy > p {
+  animation: fadeUp .9s .3s ease both;
+}
+
+.hero-copy .primary-link {
+  animation: fadeUp .9s .45s ease both;
+}
+
+.hero-visual {
+  animation: imageReveal 1.2s .2s ease both;
+}
+
+/* Scroll animasyonları */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Menü bağlantıları */
+
+.nav-links a:not(.nav-button) {
+  position: relative;
+}
+
+.nav-links a:not(.nav-button)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.nav-links a:not(.nav-button):hover::after {
+  transform: scaleX(1);
+}
+
+/* Ders listesi */
+
+.subject-row {
+  position: relative;
+}
+
+.subject-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s ease;
+}
+
+.subject-row:hover::before {
+  transform: scaleX(1);
+}
+
+/* Fiyat kartları */
+
+.price-card {
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(20,44,67,.12);
+}
+
+/* Hareket azaltma tercihi */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy .eyebrow,
+  .hero-copy h1,
+  .hero-copy > p,
+  .hero-copy .primary-link,
+  .hero-visual {
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .price-card,
+  .subject-row,
+  .subject-row::before,
+  .nav-links a::after {
+    transition: none !important;
+  }
+}
   </style>
 </head>
 
