@@ -7,775 +7,13 @@
   <meta name="description" content="Nachhilfe für die Klassen 3 bis 13. Ein modernes Website-Demoprojekt.">
   <title>nachhilfe. — Lernen mit Perspektive</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --ink: #142c43;
-      --ink-soft: #43566a;
-      --paper: #f8f7f3;
-      --white: #ffffff;
-      --yellow: #eec34f;
-      --line: #dedfdc;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "DM Sans", sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { display: block; max-width: 100%; }
-
-    a { color: inherit; text-decoration: none; }
-
-    button, a { -webkit-tap-highlight-color: transparent; }
-
-    .container {
-      width: min(1240px, calc(100% - 72px));
-      margin: auto;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      font-family: "Manrope", sans-serif;
-      letter-spacing: -.055em;
-    }
-
-    /* NAVIGATION */
-
-    .header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 90px;
-      gap: 24px;
-    }
-
-    .logo {
-      font-family: "Manrope", sans-serif;
-      font-size: 29px;
-      font-weight: 800;
-      letter-spacing: -.075em;
-    }
-
-    .logo span { color: #d6a525; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover { color: #a87a0d; }
-
-    .nav-links .nav-button {
-      background: var(--ink);
-      color: white;
-      padding: 14px 22px;
-      border-radius: 3px;
-    }
-
-    .nav-links .nav-button:hover {
-      background: #294b68;
-      color: white;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 100px 0 110px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 90px;
-    }
-
-    .hero-copy .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 32px;
-    }
-
-    .hero-copy .eyebrow::before {
-      content: "";
-      width: 30px;
-      height: 2px;
-      background: var(--yellow);
-    }
-
-    h1 {
-      font-size: clamp(58px, 6vw, 91px);
-      line-height: 1.06;
-      font-weight: 800;
-      margin: 0 0 30px;
-    }
-
-    h1 .accent {
-      color: #c99a24;
-    }
-
-    .hero-copy > p {
-      max-width: 470px;
-      color: var(--ink-soft);
-      font-size: 17px;
-      line-height: 1.9;
-      margin-bottom: 35px;
-    }
-
-    .primary-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 35px;
-      background: var(--ink);
-      color: white;
-      padding: 19px 25px;
-      font-size: 13px;
-      font-weight: 700;
-      transition: background .2s;
-    }
-
-    .primary-link:hover { background: #2b4e6c; }
-
-    .primary-link span { font-size: 20px; }
-
-    .hero-visual {
-      position: relative;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 560px;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(.75);
-    }
-
-    .photo-label {
-      position: absolute;
-      left: -28px;
-      bottom: -24px;
-      width: 220px;
-      background: var(--yellow);
-      padding: 26px;
-    }
-
-    .photo-label strong {
-      display: block;
-      font-family: "Manrope", sans-serif;
-      font-size: 43px;
-      line-height: 1;
-      letter-spacing: -.06em;
-    }
-
-    .photo-label small {
-      display: block;
-      margin-top: 12px;
-      font-size: 12px;
-      line-height: 1.6;
-      font-weight: 700;
-    }
-
-    /* INTRO STRIP */
-
-    .intro-strip {
-      background: var(--ink);
-      color: white;
-    }
-
-    .strip-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .strip-item {
-      padding: 34px 35px;
-      border-right: 1px solid #ffffff30;
-    }
-
-    .strip-item:first-child { padding-left: 0; }
-    .strip-item:last-child { border: 0; }
-
-    .strip-item strong {
-      display: block;
-      font-family: "Manrope", sans-serif;
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .strip-item span {
-      color: #b9c8d5;
-      font-size: 12px;
-    }
-
-    /* SECTION STRUCTURE */
-
-    .section {
-      padding: 115px 0;
-    }
-
-    .section-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .section-top h2 {
-      max-width: 740px;
-      margin: 14px 0 0;
-      font-size: clamp(38px, 4.6vw, 62px);
-      line-height: 1.14;
-    }
-
-    .section-top > p {
-      max-width: 290px;
-      color: var(--ink-soft);
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    /* SUBJECTS */
-
-    .subjects {
-      background: white;
-    }
-
-    .subject-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .subject-row {
-      display: grid;
-      grid-template-columns: 90px 1fr 40px;
-      align-items: center;
-      padding: 26px 0;
-      border-bottom: 1px solid var(--line);
-      transition: padding .2s, background .2s;
-    }
-
-    .subject-row:hover {
-      padding-left: 16px;
-      padding-right: 16px;
-      background: #f8f7f3;
-    }
-
-    .subject-row .number {
-      color: #a3a8ab;
-      font-size: 12px;
-    }
-
-    .subject-row h3 {
-      margin: 0;
-      font-size: clamp(25px, 3vw, 39px);
-      font-weight: 600;
-    }
-
-    .subject-row .arrow {
-      font-size: 23px;
-      text-align: right;
-      color: #b68c25;
-    }
-
-    /* APPROACH */
-
-    .approach {
-      background: var(--paper);
-    }
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 90px;
-      align-items: center;
-    }
-
-    .approach-photo img {
-      width: 100%;
-      height: 610px;
-      object-fit: cover;
-      filter: saturate(.75);
-    }
-
-    .approach-copy h2 {
-      font-size: clamp(39px, 4vw, 59px);
-      margin: 18px 0 24px;
-    }
-
-    .approach-copy > p {
-      color: var(--ink-soft);
-      line-height: 1.9;
-      margin-bottom: 38px;
-    }
-
-    .feature {
-      display: grid;
-      grid-template-columns: 50px 1fr;
-      gap: 18px;
-      padding: 24px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .feature .feature-number {
-      color: #b88a22;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .feature h3 {
-      font-size: 18px;
-      margin: 0 0 8px;
-      letter-spacing: -.03em;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    /* PRICING */
-
-    .pricing {
-      background: #edf0ef;
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .price-card {
-      background: white;
-      padding: 38px 35px;
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-card.highlight {
-      background: var(--ink);
-      color: white;
-    }
-
-    .price-card .category {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      font-weight: 700;
-      color: #a17821;
-    }
-
-    .price-card.highlight .category {
-      color: var(--yellow);
-    }
-
-    .price-card h3 {
-      font-size: 25px;
-      margin: 25px 0 14px;
-      letter-spacing: -.04em;
-    }
-
-    .price-card p {
-      color: #687887;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .price-card.highlight p { color: #c3d0dc; }
-
-    .price-bottom {
-      margin-top: auto;
-      padding-top: 32px;
-      border-top: 1px solid #e2e4e4;
-    }
-
-    .price-card.highlight .price-bottom {
-      border-color: #ffffff35;
-    }
-
-    .price-bottom strong {
-      font-family: "Manrope", sans-serif;
-      font-size: 48px;
-      letter-spacing: -.06em;
-    }
-
-    .price-bottom span {
-      font-size: 12px;
-      color: #7e8b96;
-    }
-
-    .price-card.highlight .price-bottom span {
-      color: #c3d0dc;
-    }
-
-    .demo-note {
-      margin-top: 24px;
-      color: #6e7b84;
-      font-size: 12px;
-    }
-
-    /* FINAL CTA */
-
-    .closing {
-      background: var(--yellow);
-      padding: 110px 0;
-    }
-
-    .closing-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-    }
-
-    .closing h2 {
-      max-width: 800px;
-      font-size: clamp(46px, 5.5vw, 78px);
-      line-height: 1.1;
-      margin: 15px 0 0;
-    }
-
-    .closing a {
-      display: inline-block;
-      flex-shrink: 0;
-      padding: 17px 25px;
-      background: var(--ink);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #102538;
-      color: white;
-      padding: 55px 0;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 30px;
-    }
-
-    footer .logo { color: white; }
-
-    footer p {
-      margin: 12px 0 0;
-      color: #a9bac9;
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .footer-right {
-      text-align: right;
-    }
-
-    /* TABLET */
-
-    @media (max-width: 1000px) {
-      .hero-grid,
-      .approach-grid {
-        grid-template-columns: 1fr;
-        gap: 55px;
-      }
-
-      .hero-visual {
-        max-width: 680px;
-      }
-
-      .approach-photo img {
-        height: 440px;
-      }
-
-      .section-top {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .price-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .closing-grid {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-      .container {
-        width: calc(100% - 36px);
-      }
-
-      .nav {
-        padding: 22px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .nav-links .nav-button {
-        padding: 10px 13px;
-      }
-
-      .hero {
-        padding: 65px 0 85px;
-      }
-
-      h1 {
-        font-size: clamp(48px, 12vw, 70px);
-      }
-
-      .hero-visual img {
-        height: 390px;
-      }
-
-      .photo-label {
-        left: 0;
-        bottom: -20px;
-      }
-
-      .strip-grid,
-      .price-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .strip-item,
-      .strip-item:first-child {
-        padding: 25px 0;
-        border-right: 0;
-        border-bottom: 1px solid #ffffff30;
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .section-top {
-        margin-bottom: 40px;
-      }
-
-      .subject-row {
-        grid-template-columns: 45px 1fr 25px;
-      }
-
-      .approach-photo img {
-        height: 350px;
-      }
-
-      .closing {
-        padding: 75px 0;
-      }
-
-      .footer-grid {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
-      }
-    }
-
-    /* ===== ANIMATIONS ===== */
-
-/* Sayfa açılış animasyonu */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes imageReveal {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.hero-copy .eyebrow {
-  animation: fadeUp .7s ease both;
-}
-
-.hero-copy h1 {
-  animation: fadeUp .9s .15s ease both;
-}
-
-.hero-copy > p {
-  animation: fadeUp .9s .3s ease both;
-}
-
-.hero-copy .primary-link {
-  animation: fadeUp .9s .45s ease both;
-}
-
-.hero-visual {
-  animation: imageReveal 1.2s .2s ease both;
-}
-
-/* Scroll animasyonları */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Menü bağlantıları */
-
-.nav-links a:not(.nav-button) {
-  position: relative;
-}
-
-.nav-links a:not(.nav-button)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 100%;
-  height: 2px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .3s ease;
-}
-
-.nav-links a:not(.nav-button):hover::after {
-  transform: scaleX(1);
-}
-
-/* Ders listesi */
-
-.subject-row {
-  position: relative;
-}
-
-.subject-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .45s ease;
-}
-
-.subject-row:hover::before {
-  transform: scaleX(1);
-}
-
-/* Fiyat kartları */
-
-.price-card {
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-.price-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(20,44,67,.12);
-}
-
-/* Hareket azaltma tercihi */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-copy .eyebrow,
-  .hero-copy h1,
-  .hero-copy > p,
-  .hero-copy .primary-link,
-  .hero-visual {
-    animation: none !important;
-  }
-
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .price-card,
-  .subject-row,
-  .subject-row::before,
-  .nav-links a::after {
-    transition: none !important;
-  }
-}
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <div class="progress" aria-hidden="true"></div>
 
   <!-- HEADER -->
 
@@ -784,30 +22,34 @@
 
       <a class="logo" href="#start">nachhilfe<span>.</span></a>
 
-      <nav class="nav-links" aria-label="Hauptnavigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden>Menü <span aria-hidden="true">☰</span></button>
+      <nav class="nav-links" id="navigation" aria-label="Hauptnavigation">
         <a href="#faecher">Fächer</a>
         <a href="#konzept">Unser Konzept</a>
         <a href="#angebote">Angebote</a>
-        <a class="nav-button" href="#mehr">Mehr entdecken ↗</a>
+        <a href="#unterricht">Lernmodus</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-button" href="#kontakt">Beratung anfragen ↗</a>
       </nav>
 
     </div>
   </header>
 
-  <main>
+  <main id="inhalt" tabindex="-1">
 
     <!-- HERO -->
 
     <section class="hero" id="start">
+      <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="container hero-grid">
 
         <div class="hero-copy">
-          <div class="eyebrow">Nachhilfe · Klassen 3 bis 13</div>
+          <div class="eyebrow">Nachhilfe in Darmstadt · Klassen 3 bis 13</div>
 
           <h1>
-            Lernen.<br>
-            Verstehen.<br>
-            <span class="accent">Wachsen.</span>
+            <span class="headline-line"><span>Lernen.</span></span>
+            <span class="headline-line"><span>Verstehen.</span></span>
+            <span class="headline-line"><span class="accent">Wachsen.</span></span>
           </h1>
 
           <p>
@@ -816,6 +58,7 @@
             Wir zeigen, wie Lernen wieder Freude machen kann.
           </p>
 
+
           <a class="primary-link" href="#angebote">
             Lernangebote entdecken <span>↗</span>
           </a>
@@ -823,13 +66,22 @@
 
         <div class="hero-visual">
           <img
-            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1400&q=85"
-            alt="Lernmaterialien und Notizen auf einem Schreibtisch">
+            src="images/hero-lernen.jpg"
+            alt="Lernmaterialien und Notizen auf einem Schreibtisch"
+            width="700" height="800" fetchpriority="high">
 
           <div class="photo-label">
-            <strong>3–13</strong>
+            <strong data-count="13">3–13</strong>
             <small>Klassenstufen.<br>Ein Ziel: weiterkommen.</small>
           </div>
+
+          <span class="chip chip-1" aria-hidden="true">x² + y² = z²</span>
+          <span class="chip chip-2" aria-hidden="true">H₂O</span>
+          <span class="chip chip-3" aria-hidden="true">Bonjour!</span>
+          <a class="stamp" href="#but" aria-label="Kostenlose Nachhilfe mit dem Bildungs- und Teilhabepaket">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ring" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#ring" textLength="236" lengthAdjust="spacingAndGlyphs">Kostenlose Nachhilfe · Jobcenter · BuT ·</textPath></text></svg>
+            <span><strong>0 €</strong>mit BuT</span>
+          </a>
         </div>
 
       </div>
@@ -841,22 +93,28 @@
       <div class="container strip-grid">
 
         <div class="strip-item">
-          <strong>05</strong>
-          <span>Schulfächer im Überblick</span>
+          <strong>Online</strong>
+          <span>Unterricht online</span>
         </div>
 
         <div class="strip-item">
-          <strong>3–13</strong>
+          <strong data-count="13">3–13</strong>
           <span>Klassenstufen</span>
         </div>
 
         <div class="strip-item">
-          <strong>01</strong>
-          <span>Gemeinsames Ziel: Lernerfolg</span>
+          <strong>Darmstadt</strong>
+          <span>Unterricht vor Ort</span>
         </div>
 
       </div>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Mathematik</span><span>Deutsch</span><span>Englisch</span><span>Französisch</span><span>Chemie</span><span>Online</span><span>Vor Ort in Darmstadt</span><span>Klassen 3–13</span>
+      </div>
+    </div>
 
     <!-- SUBJECTS -->
 
@@ -880,31 +138,36 @@
           <div class="subject-row">
             <span class="number">01</span>
             <h3>Mathematik</h3>
-            <span class="arrow">↗</span>
+            <p>Vom Einmaleins bis zur Analysis</p>
+            <img src="images/fach-mathematik.jpg" alt="" loading="lazy">
           </div>
 
           <div class="subject-row">
             <span class="number">02</span>
             <h3>Deutsch</h3>
-            <span class="arrow">↗</span>
+            <p>Lesen, Schreiben, Grammatik &amp; Aufsätze</p>
+            <span class="bubble" data-phrases="Hallo! Lass uns zusammen lernen!|Was für ein schöner Tag!|Schön, dich kennenzulernen!">Hallo! Lass uns zusammen lernen!</span>
           </div>
 
           <div class="subject-row">
             <span class="number">03</span>
             <h3>Englisch</h3>
-            <span class="arrow">↗</span>
+            <p>Vokabeln, Grammatik &amp; sicher sprechen</p>
+            <span class="bubble" data-phrases="Hello! Let’s learn together!|You look great today!|Nice to meet you!">Hello! Let’s learn together!</span>
           </div>
 
           <div class="subject-row">
             <span class="number">04</span>
             <h3>Französisch</h3>
-            <span class="arrow">↗</span>
+            <p>Von den Grundlagen bis zur Oberstufe</p>
+            <span class="bubble" data-phrases="Bonjour ! On apprend ensemble ?|Quelle belle journée !|Ravi de te rencontrer !">Bonjour ! On apprend ensemble ?</span>
           </div>
 
           <div class="subject-row">
             <span class="number">05</span>
             <h3>Chemie</h3>
-            <span class="arrow">↗</span>
+            <p>Formeln, Reaktionen &amp; Experimente verstehen</p>
+            <img src="images/fach-chemie.jpg" alt="" loading="lazy">
           </div>
 
         </div>
@@ -919,9 +182,9 @@
 
         <div class="approach-photo">
           <img
-            src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=85"
+            src="images/konzept.jpg"
             alt="Lernumgebung in einem Unterrichtsraum"
-            loading="lazy">
+            loading="lazy" width="600" height="720" decoding="async">
         </div>
 
         <div class="approach-copy">
@@ -968,6 +231,31 @@
       </div>
     </section>
 
+    <!-- LEARNING MODE -->
+
+    <section class="section learning-mode" id="unterricht" aria-labelledby="lernmodus-title">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">03 / Lernmodus</span>
+            <h2 id="lernmodus-title">Online oder vor Ort.</h2>
+          </div>
+        </div>
+        <div class="learning-options" role="group" aria-label="Unterrichtsformen">
+          <div class="learning-option">
+            <img src="images/lernmodus-online.jpg" alt="" loading="lazy">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 21h8m-4-5v5"/></svg>
+            <div><small>Unterricht</small><strong>Online</strong><p>Flexibel von zu Hause lernen – live per Video.</p></div>
+          </div>
+          <div class="learning-option">
+            <img src="images/lernmodus-vor-ort.jpg" alt="" loading="lazy">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg>
+            <div><small>Zentral in Darmstadt</small><strong>Vor Ort</strong><p>Persönlich und konzentriert in unserem Lernzentrum.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PRICES -->
 
     <section class="section pricing" id="angebote">
@@ -975,7 +263,7 @@
 
         <div class="section-top">
           <div>
-            <span class="eyebrow">03 / Lernangebote</span>
+            <span class="eyebrow">04 / Lernangebote</span>
             <h2>Für jeden Lernweg<br>das passende Format.</h2>
           </div>
 
@@ -1042,6 +330,75 @@
       </div>
     </section>
 
+    <!-- FREE TUTORING (BuT) -->
+
+    <section class="section but" id="but" aria-labelledby="but-title">
+      <div class="container but-grid">
+
+        <div class="but-copy">
+          <span class="eyebrow">Bildung und Teilhabe</span>
+          <h2 id="but-title">Nachhilfe – <span>kostenlos</span> mit dem Jobcenter.</h2>
+          <p>
+            Über das Bildungs- und Teilhabepaket (BuT) können die Kosten für die Nachhilfe
+            vollständig übernommen werden. Gute Bildung soll nicht am Geld scheitern.
+          </p>
+          <a class="primary-link" href="#kontakt">Jetzt beraten lassen <span>↗</span></a>
+        </div>
+
+        <ol class="but-steps">
+          <li><span>01</span><div><h3>Anspruch prüfen</h3><p>Zum Beispiel bei Bürgergeld, Wohngeld oder Kinderzuschlag.</p></div></li>
+          <li><span>02</span><div><h3>Bestätigung der Schule</h3><p>Die Schule bestätigt, dass Lernförderung sinnvoll ist.</p></div></li>
+          <li><span>03</span><div><h3>Antrag stellen</h3><p>Beim Jobcenter oder der zuständigen Stelle – wir erklären dir gern die nächsten Schritte.</p></div></li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+
+    <!-- FAQ -->
+
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">05 / Häufige Fragen</span>
+            <h2 id="faq-title">Gut zu wissen.</h2>
+          </div>
+          <p>Die wichtigsten Antworten auf einen Blick. Noch etwas offen? Frag uns einfach.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Für welche Klassen und Fächer gibt es Nachhilfe?</summary>
+            <p>Wir begleiten Schülerinnen und Schüler von der 3. bis zur 13. Klasse in Mathematik, Deutsch, Englisch, Französisch und Chemie – von den Grundlagen bis zur Abiturvorbereitung.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Wie läuft der Online-Unterricht ab?</summary>
+            <p>Der Unterricht findet live per Video statt. Du lernst bequem von zu Hause – mit derselben persönlichen Betreuung wie vor Ort.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Wo befindet sich das Lernzentrum?</summary>
+            <p>Unser Lernzentrum liegt zentral in Darmstadt und ist gut erreichbar. Die genaue Adresse folgt in Kürze.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Wie groß sind die Lerngruppen?</summary>
+            <p>Je nach Format lernst du allein, zu zweit oder in einer kleinen Gruppe mit 3 bis 5 Lernenden.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kann die Nachhilfe kostenlos sein?</summary>
+            <p>Ja, über das Bildungs- und Teilhabepaket (BuT) kann das Jobcenter oder die zuständige Stelle die Kosten übernehmen. Wir beraten dich gern zu den Voraussetzungen.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Wie finde ich das passende Angebot?</summary>
+            <p>Schick uns eine Beratungsanfrage. Gemeinsam schauen wir, welches Fach, welcher Lernmodus und welches Format zu dir passen.</p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
     <!-- CLOSING -->
 
     <section class="closing" id="mehr">
@@ -1050,10 +407,66 @@
         <div>
           <span class="eyebrow">Ein guter Anfang</span>
           <h2>Große Ziele beginnen mit kleinen Schritten.</h2>
+          <a href="#kontakt">Beratung anfragen ↗</a>
         </div>
 
-        <a href="#start">Zurück nach oben ↑</a>
+        <img class="closing-photo"
+          src="images/abschluss.jpg"
+          alt="Apfel auf einem Stapel Schulbücher" loading="lazy" width="450" height="340">
 
+      </div>
+    </section>
+
+    <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">06 / Beratung &amp; Kontakt</span>
+          <h2 id="kontakt-title">Dein Lernweg.<br><span>Gemeinsam finden.</span></h2>
+          <p>Welche Fächer brauchst du? Online oder vor Ort? Gemeinsam finden wir heraus, welche Unterstützung zu dir passt.</p>
+          <p class="contact-email"><span>E-Mail</span><strong>info@beispiel.de</strong><small>Beispieladresse</small></p>
+          <ol class="contact-steps">
+            <li><span aria-hidden="true">01</span><div><h3>Was möchtest du lernen?</h3><p>Wähle die Fächer, in denen du Unterstützung suchst.</p></div></li>
+            <li><span aria-hidden="true">02</span><div><h3>Wie möchtest du lernen?</h3><p>Online, vor Ort in Darmstadt oder noch offen.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><h3>Lass uns gemeinsam schauen.</h3><p>Erzähl uns, was dir beim Lernen wichtig ist.</p></div></li>
+          </ol>
+        </div>
+
+        <form class="contact-form" aria-labelledby="form-title" aria-describedby="form-note" action="https://formspree.io/f/DEINE-FORM-ID" method="POST">
+          <h3 id="form-title">Beratung anfragen</h3>
+          <p class="form-intro">Felder mit * sind Pflichtfelder.</p>
+          <div class="form-row">
+            <label for="contact-name">Name *<input id="contact-name" name="name" autocomplete="name" required maxlength="100"></label>
+            <label for="contact-email">E-Mail *<input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254"></label>
+          </div>
+          <div class="form-row">
+            <label for="contact-phone">Telefon (optional)<input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></label>
+            <label for="contact-grade">Klassenstufe (optional)<select id="contact-grade" name="grade"><option value="">Bitte wählen</option><option>3. Klasse</option><option>4. Klasse</option><option>5. Klasse</option><option>6. Klasse</option><option>7. Klasse</option><option>8. Klasse</option><option>9. Klasse</option><option>10. Klasse</option><option>11. Klasse</option><option>12. Klasse</option><option>13. Klasse</option></select></label>
+          </div>
+          <fieldset>
+            <legend>In welchen Fächern suchst du Unterstützung?</legend>
+            <div class="choice-list">
+              <label class="choice"><input type="checkbox" name="subjects" value="Mathematik"><span>Mathematik</span></label>
+              <label class="choice"><input type="checkbox" name="subjects" value="Deutsch"><span>Deutsch</span></label>
+              <label class="choice"><input type="checkbox" name="subjects" value="Englisch"><span>Englisch</span></label>
+              <label class="choice"><input type="checkbox" name="subjects" value="Französisch"><span>Französisch</span></label>
+              <label class="choice"><input type="checkbox" name="subjects" value="Chemie"><span>Chemie</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Welcher Lernmodus passt zu dir?</legend>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="mode" value="online"><span>Online</span></label>
+              <label class="choice"><input type="radio" name="mode" value="vor-ort"><span>Vor Ort · Darmstadt</span></label>
+              <label class="choice"><input type="radio" name="mode" value="offen" checked><span>Noch offen</span></label>
+            </div>
+          </fieldset>
+          <label for="contact-message">Was möchtest du uns mitgeben? (optional)<textarea id="contact-message" name="message" rows="4" maxlength="2000"></textarea></label>
+          <label class="consent" for="contact-consent"><input id="contact-consent" name="consent" type="checkbox" value="ja" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. *</span></label>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form-note" id="form-note">Das Formular ist aktuell eine Vorschau. Anfragen können noch nicht gesendet werden.</p>
+          <button class="primary-link" type="submit" disabled aria-describedby="form-note">Anfrage senden <span aria-hidden="true">↗</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -1067,61 +480,17 @@
       <div>
         <a href="#start" class="logo">nachhilfe<span>.</span></a>
         <p>Lernen. Verstehen. Wachsen.</p>
+        <p>Darmstadt · Online &amp; vor Ort</p>
       </div>
 
       <div class="footer-right">
         <p>Konzeptwebsite / Portfolio-Projekt</p>
         <p>Dies ist eine Demo-Website ohne reale Buchungsfunktion.</p>
+        <p class="footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
       </div>
 
     </div>
   </footer>
 
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  // Animasyon uygulanacak bölümler
-  const elements = document.querySelectorAll(
-    ".section-top, .subject-row, .feature, .price-card, .approach-photo"
-  );
-
-  // JavaScript çalışıyorsa reveal sınıfını ekle
-  elements.forEach(element => {
-    element.classList.add("reveal");
-  });
-
-  // Tarayıcıda IntersectionObserver desteği yoksa
-  // veya kullanıcı azaltılmış hareket istiyorsa
-  // içerikleri doğrudan göster.
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (reducedMotion || !("IntersectionObserver" in window)) {
-    elements.forEach(element => {
-      element.classList.add("visible");
-    });
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.08,
-      rootMargin: "0px 0px -20px 0px"
-    }
-  );
-
-  elements.forEach(element => observer.observe(element));
-
-});
-</script>
 </body>
 </html>
