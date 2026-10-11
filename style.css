@@ -28,6 +28,7 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; text-w
 .header { position: sticky; top: 0; z-index: 20; background: #f8f7f3f5; border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); transition: box-shadow .3s; }
 .header.scrolled { box-shadow: 0 10px 30px #142c4312; }
 .nav { display: flex; justify-content: space-between; align-items: center; min-height: 144px; gap: 24px; transition: min-height .3s; }
+.nav > .nav-button { margin-left: auto; } /* "Zur Startseite" on sub pages stays right, even when it wraps below the logo */
 .header.scrolled .nav { min-height: 74px; }
 .progress { position: fixed; top: 0; left: 0; right: 0; z-index: 30; height: 3px; background: var(--yellow); transform: scaleX(0); transform-origin: left; }
 .logo { display: inline-block; }
