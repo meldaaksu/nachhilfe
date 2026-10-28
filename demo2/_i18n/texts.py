@@ -293,8 +293,8 @@ TEXTS = {
     'Inhalte folgen.': {'tr': 'İçerik yakında eklenecek.', 'en': 'Content coming soon.'},
 
     # Über uns
-    'Lernen und Leben': {'tr': 'Öğrenmek ve yaşamak', 'en': 'Learning and living'},
-    'mit Freude.': {'tr': 'neşeyle.', 'en': 'with joy.'},
+    'Lernen und Leben': {'tr': 'öğrenmek ve yaşamak.', 'en': 'Learning and living'},
+    'mit Freude.': {'tr': 'Neşeyle', 'en': 'with joy.'},
     'Gründung des Luisen Bildungsverein e.V.': {'tr': 'Luisen Bildungsverein e.V. kuruluşu', 'en': 'Luisen Bildungsverein e.V. founded'},
     'gemeinnützig': {'tr': 'kâr amacı gütmez', 'en': 'non-profit'},
     'Ohne Gewinnerzielungsabsicht': {'tr': 'Kâr amacı olmadan', 'en': 'Not for profit'},

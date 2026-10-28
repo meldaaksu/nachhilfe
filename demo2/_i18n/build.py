@@ -43,7 +43,13 @@ def put_switcher(source, page, lang):
     return re.sub(r'<div class="lang-switch".*?</div>', lambda m: switcher(page, lang), source, count=1, flags=re.S)
 
 
+# Turkish puts the highlighted "mit Freude" (Neşeyle) first: "Neşeyle öğrenmek ve yaşamak."
+WORD_ORDER = {'tr': [(re.compile(r'(<h1[^>]*>)Lernen und Leben <span>mit Freude\.</span>'), r'\1<span>mit Freude.</span> Lernen und Leben')]}
+
+
 def translate(source, lang, missing):
+    for pattern, repl in WORD_ORDER.get(lang, []):
+        source = pattern.sub(repl, source)
     table = {de: texts[lang] for de, texts in TEXTS.items()}
     out, skip = [], 0
     for part in re.split(r'(<[^>]+>)', source):
