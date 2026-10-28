@@ -700,3 +700,13 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
 /* "Zentral in Darmstadt" as a readable pin on the in-person card. */
 .learning-option .mode-pin { position: absolute; top: 22px; right: 22px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px 8px 10px; border-radius: 999px; background: white; color: var(--ink); font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px #0b4f4c33; }
 .learning-option .mode-pin svg { width: 16px; height: 16px; flex: none; fill: none; stroke: #00817d; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Phones: the e-mail address never breaks mid-word, the two contract terms stack. */
+.info-card strong a[href^="mailto:"] { overflow-wrap: normal; word-break: keep-all; }   /* may only break after the @ */
+.term-option strong { white-space: nowrap; }
+@media (max-width: 480px) {
+  .info-card strong a[href^="mailto:"] { font-size: 15.5px; }
+  .info-card { padding-inline: 18px; gap: 2px 14px; }
+  .term-choice { grid-template-columns: 1fr; gap: 12px; }
+  .term-option { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+}
