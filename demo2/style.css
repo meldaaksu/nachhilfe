@@ -65,7 +65,7 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.055em; text-w
 
 /* Leaf from the logo: a leaf rides the progress bar, small leaves sprout at section labels. */
 .progress-leaf svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 4px 6px #1b3a6b33); }
-.progress-leaf { position: fixed; top: -5px; left: 0; z-index: 31; width: 20px; height: 20px; margin-left: -12px; color: #83c130; pointer-events: none; }
+.progress-leaf { position: fixed; top: 1px; left: 0; z-index: 31; width: 20px; height: 20px; margin-left: -18px; color: #83c130; pointer-events: none; }
 main section:not(.hero) .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
 main section:not(.hero) .eyebrow::before { content: ""; width: 20px; height: 20px; flex-shrink: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M16 86C10 46 40 14 88 12c3 46-28 76-72 74Z' fill='%2383c130'/%3E%3Cpath d='M20 82C38 60 56 42 80 20' fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; }
 .but .eyebrow::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M16 86C10 46 40 14 88 12c3 46-28 76-72 74Z' fill='%2383c130'/%3E%3Cpath d='M20 82C38 60 56 42 80 20' fill='none' stroke='%231b3a6b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") !important; }
@@ -694,8 +694,9 @@ footer p { margin: 10px 0 0; color: #b9c8d5; font-size: 12px; line-height: 1.8; 
   .support-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 14px; }
   .support-main { grid-row: auto; min-height: 380px; }
   .support-main-copy { padding: 24px; }
+  .support-main h3 { font-size: clamp(22px, 6.6vw, 32px); overflow-wrap: break-word; hyphens: auto; }
 }
 
 /* "Zentral in Darmstadt" as a readable pin on the in-person card. */
-.learning-option .mode-pin { position: absolute; top: 22px; left: 22px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px 8px 10px; border-radius: 999px; background: white; color: var(--ink); font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px #0b4f4c33; }
+.learning-option .mode-pin { position: absolute; top: 22px; right: 22px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px 8px 10px; border-radius: 999px; background: white; color: var(--ink); font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px #0b4f4c33; }
 .learning-option .mode-pin svg { width: 16px; height: 16px; flex: none; fill: none; stroke: #00817d; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
