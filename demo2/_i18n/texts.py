@@ -286,6 +286,8 @@ TEXTS = {
 
     # Kurse / Projekte
     'Die Inhalte werden gerade vorbereitet.': {'tr': 'İçerikler şu anda hazırlanıyor.', 'en': 'The content is currently being prepared.'},
+    'Galerie': {'tr': 'Galeri', 'en': 'Gallery'},
+    'Galerie — FOKUS Lernzentrum Darmstadt': {'tr': 'Galeri — FOKUS Lernzentrum Darmstadt', 'en': 'Gallery — FOKUS Lernzentrum Darmstadt'},
     'Demnächst': {'tr': 'Çok yakında', 'en': 'Coming soon'},
     'Türkischkurs': {'tr': 'Türkçe kursu', 'en': 'Turkish course'},
     'Ebru-Kurs': {'tr': 'Ebru kursu', 'en': 'Ebru (paper marbling) course'},
@@ -293,14 +295,14 @@ TEXTS = {
     'Inhalte folgen.': {'tr': 'İçerik yakında eklenecek.', 'en': 'Content coming soon.'},
 
     # Über uns
-    'Lernen und Leben': {'tr': 'öğrenmek ve yaşamak.', 'en': 'Learning and living'},
-    'mit Freude.': {'tr': 'Neşeyle', 'en': 'with joy.'},
+    'Lernen und Leben': {'tr': 'Neşeyle öğren,', 'en': 'Learning and living'},
+    'mit Freude.': {'tr': 'neşeyle yaşa.', 'en': 'with joy.'},
     'Gründung des Luisen Bildungsverein e.V.': {'tr': 'Luisen Bildungsverein e.V. kuruluşu', 'en': 'Luisen Bildungsverein e.V. founded'},
     'gemeinnützig': {'tr': 'kâr amacı gütmez', 'en': 'non-profit'},
     'Ohne Gewinnerzielungsabsicht': {'tr': 'Kâr amacı olmadan', 'en': 'Not for profit'},
     'Eine Einrichtung des': {'tr': 'Bir kurumudur:', 'en': 'Run by'},
     'Das FOKUS LERNZENTRUM ist eine Einrichtung des gemeinnützigen Luisen Bildungsverein e.V. in Darmstadt. Seit seiner Gründung im Jahr 1998 setzt sich der Verein unter dem Motto „Lernen und Leben mit Freude“ für Bildung, Begegnung und ein respektvolles Miteinander ein. Mit unserem neuen Lernzentrum führen wir diesen Gedanken weiter: Wir eröffnen Menschen unabhängig von ihrer Herkunft und ihrem sozialen Hintergrund neue Bildungschancen.': {
-        'tr': 'FOKUS LERNZENTRUM, Darmstadt’taki kâr amacı gütmeyen Luisen Bildungsverein e.V. derneğinin bir kurumudur. Dernek, 1998’deki kuruluşundan bu yana „Neşeyle öğrenmek ve yaşamak“ mottosuyla eğitim, buluşma ve saygılı bir birlikte yaşam için çalışmaktadır. Yeni öğrenme merkezimizle bu düşünceyi sürdürüyoruz: Kökenleri ve sosyal geçmişleri ne olursa olsun insanlara yeni eğitim fırsatları sunuyoruz.',
+        'tr': 'FOKUS LERNZENTRUM, Darmstadt’taki kâr amacı gütmeyen Luisen Bildungsverein e.V. derneğinin bir kurumudur. Dernek, 1998’deki kuruluşundan bu yana „Neşeyle öğren, neşeyle yaşa“ mottosuyla eğitim, buluşma ve saygılı bir birlikte yaşam için çalışmaktadır. Yeni öğrenme merkezimizle bu düşünceyi sürdürüyoruz: Kökenleri ve sosyal geçmişleri ne olursa olsun insanlara yeni eğitim fırsatları sunuyoruz.',
         'en': 'FOKUS LERNZENTRUM is run by the non-profit Luisen Bildungsverein e.V. in Darmstadt. Since it was founded in 1998, the association has worked for education, encounter and respectful coexistence under the motto “Learning and living with joy”. With our new learning centre we carry this idea forward: we open up new educational opportunities for people regardless of their origin and social background.'},
     'Im Mittelpunkt unserer Arbeit steht die Nachhilfe für Schülerinnen und Schüler. Wir unterstützen sie dabei, Lerninhalte besser zu verstehen, Vertrauen in die eigenen Fähigkeiten zu gewinnen und ihre schulischen Ziele zu erreichen. Dabei möchten wir nicht nur Wissen vermitteln, sondern auch die Freude am Lernen und die selbstständige Entwicklung fördern.': {
         'tr': 'Çalışmalarımızın merkezinde öğrencilere yönelik özel ders yer alıyor. Öğrencilerin konuları daha iyi anlamalarına, kendi yeteneklerine güven kazanmalarına ve okul hedeflerine ulaşmalarına destek oluyoruz. Bunu yaparken yalnızca bilgi aktarmak değil, öğrenme keyfini ve bağımsız gelişimi de desteklemek istiyoruz.',
